@@ -13,6 +13,7 @@
 
 @interface FMTopLevelViewController : UIViewController<FMSetupDelegate>
 
+@property (nonatomic) BOOL shouldSetup;
 @property (nonatomic) FMMainViewController* mainVC;
 
 -(void) setupCompleted;

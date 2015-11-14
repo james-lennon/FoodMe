@@ -8,6 +8,7 @@
 
 #import "FMTopLevelViewController.h"
 #import "FMSetupViewController.h"
+#import "FMColors.h"
 
 @implementation FMTopLevelViewController
 
@@ -15,26 +16,39 @@
 {
     self = [super init];
     if (self) {
-        
+        _shouldSetup = YES;
     }
     return self;
 }
 
 -(void)viewDidLoad {
+    self.view.backgroundColor = BACKGROUND_COLOR;
+    
     _mainVC = [[FMMainViewController alloc] init];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    FMSetupViewController* vc = [[FMSetupViewController alloc] init];
-    vc.setupDelegate = self;
-    [self presentViewController:vc animated:NO completion:nil];
+    if (_shouldSetup) {
+        _shouldSetup = NO;
+        FMSetupViewController* vc = [[FMSetupViewController alloc] init];
+        vc.setupDelegate = self;
+        [self presentViewController:vc animated:NO completion:nil];
+    }
 }
 
++ (UIViewController*) topMostController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    
+    return topController;
+}
 
 -(void)setupCompleted {
-//    [self.presentedViewController dismissViewControllerAnimated:NO completion:^{
-//        [self presentViewController:_mainVC animated:YES completion:nil];
-//    }];
+    [self presentViewController:_mainVC animated:NO completion:nil];
 }
 
 @end

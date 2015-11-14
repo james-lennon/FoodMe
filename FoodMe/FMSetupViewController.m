@@ -15,6 +15,7 @@
 {
     self = [super init];
     if (self) {
+        // TODO get this from model
         _questionIndex = 0;
         _prompts = @[
                      @"We'll need to ask you a few questions to get set up.",
@@ -53,7 +54,7 @@
     
     _questionIndex++;
     if (_questionIndex >= _prompts.count) {
-        [self dismissViewControllerAnimated:NO completion:^{
+        [self.presentingViewController dismissViewControllerAnimated:NO completion:^{
             [_setupDelegate setupCompleted];
         }];
     } else {
