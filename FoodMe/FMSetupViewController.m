@@ -8,6 +8,8 @@
 
 #import "FMSetupViewController.h"
 #import "FMQuestionViewController.h"
+#import "FMYelpHelper.h"
+#import "FMDataLoader.h"
 
 @implementation FMSetupViewController
 
@@ -15,17 +17,27 @@
 {
     self = [super init];
     if (self) {
-        // TODO get this from model
+
+        
+        NSMutableArray* funQuestionArray = [[FMDataLoader sharedInstance] genQuestion];;
+        NSString* questPart = funQuestionArray[0];
+        
+        [funQuestionArray removeObjectAtIndex:0];
+        NSMutableArray* answers = funQuestionArray;
+        
+        
         _questionIndex = 0;
         _prompts = @[
                      @"We'll need to ask you a few questions to get set up.",
                      @"What's your price range?",
                      @"How far away do you want to eat?",
+                     questPart
                      ];
         _options = @[
                      @[@"Ok"],
                      @[@"$5-$10", @"$10-$20", @"$20-$40"],
-                     @[@"5 - 10 min", @"10 - 20 min", @"20 - 40 min"]
+                     @[@"5 - 10 min", @"10 - 20 min", @"20 - 40 min"],
+                     answers
                      ];
     }
     return self;
@@ -51,6 +63,13 @@
 -(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question {
     
     // TODO: update user data with response here
+    
+    if (_questionIndex == 1) {
+        [[FMYelpHelper sharedInstance] setPriceDescBasedOnResponse:answer];
+    }
+    else if (_questionIndex == 2) {
+        [[FMYelpHelper sharedInstance] setSearchRadiusBasedOnTime:answer];
+    }
     
     _questionIndex++;
     if (_questionIndex >= _prompts.count) {

@@ -57,7 +57,7 @@ SINGLETON_IMPL(FMLocationHelper);
         if(![placemark.locality isEqualToString:self.locality]) {
             
             self.locality = placemark.locality;
-            [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
+//            [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
         }
          
     }];

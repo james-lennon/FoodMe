@@ -15,6 +15,20 @@
 @property (nonatomic) NSUserDefaults* dflts;
 @property (nonatomic) NSMutableDictionary* yelpData;
 
+@property (nonatomic) NSString* priceDesc;
+@property (nonatomic) double radiusInMeters;
+
+//_prompts = @[
+//@"We'll need to ask you a few questions to get set up.",
+//@"What's your price range?",
+//@"How far away do you want to eat?",
+//];
+//_options = @[
+//@[@"Ok"],
+//@[@"$5-$10", @"$10-$20", @"$20-$40"],
+//@[@"5 - 10 min", @"10 - 20 min", @"20 - 40 min"]
+//];
+
 @end
 
 @implementation FMYelpHelper
@@ -41,6 +55,35 @@ static NSString * const kSearchLimit       = @"3";
 }
 
 #pragma mark - Data Processing
+
+-(void) setSearchRadiusBasedOnTime:(NSString *)timeRange
+{
+#warning fix this later...
+    if([timeRange isEqualToString:@"5 - 10 min"]) {
+        
+        _radiusInMeters = 801.45331;
+    }
+    else if([timeRange isEqualToString:@"10 - 20 min"]) {
+        
+        _radiusInMeters = 801.45331 * 2;
+    }
+    else {
+        _radiusInMeters = 801.45331 * 4;
+    }
+}
+
+-(void)setPriceDescBasedOnResponse:(NSString *)response
+{
+    if ([response isEqualToString:@"$5-$10"]) {
+        _priceDesc = @"Inexpensive";
+    }
+    else if ([response isEqualToString:@"$10-$20"]) {
+        _priceDesc = @"Moderate";
+    }
+    else {
+        _priceDesc = @"Pricey";
+    }
+}
 
 -(NSMutableDictionary *) mutateCoefficientsForPostEating: (NSMutableDictionary *)coeffdict categoriesToMutate:(NSArray *)mutcats likedboolean:(BOOL)liked {
    
