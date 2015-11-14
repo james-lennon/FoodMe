@@ -9,10 +9,16 @@
 #import "FMDataLoader.h"
 
 @interface FMDataLoader ()
+
 @property NSMutableArray<NSString *>* questionarray;
 @property NSMutableArray<NSString *>* loadingarray;
+
 @end
+
 @implementation FMDataLoader
+
+SINGLETON_IMPL(FMDataLoader);
+
 - (instancetype) init
 {
     if(self = [super init]) {
@@ -29,6 +35,7 @@
     }
     return self;
 }
+
 //Gen question chooses a question randomly from the loaded file and chooses random answers, returning them in an array of strings
 //index 1 is the question, next 2-3 indices are answers
 - (NSMutableArray *) genQuestion
@@ -47,7 +54,9 @@
     }
     return arr;
 }
-- (NSString *) genLoadingMessage{
+
+- (NSString *) genLoadingMessage {
     return [_loadingarray objectAtIndex:arc4random_uniform(_loadingarray.count-1)];//chooses a random loading message from the list to return
 }
+
 @end

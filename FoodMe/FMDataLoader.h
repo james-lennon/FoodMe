@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SingletonHelper.h"
 
 @interface FMDataLoader : NSObject
+
+SINGLETON_INTR(FMDataLoader);
 
 - (NSMutableArray *) genQuestion;
 - (NSString *) genLoadingMessage;
