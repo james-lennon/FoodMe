@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "FMQuestionViewController.h"
+#import "FMMainViewController.h"
 #import "FMYelpHelper.h"
 #import "FMLocationHelper.h"
 
@@ -29,7 +29,8 @@
     
     [[FMLocationHelper sharedInstance] startTrackingLocation];
     
-    FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
+//    FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
+    FMMainViewController* vc = [[FMMainViewController alloc] init];
     self.window.rootViewController = vc;
     
 //    [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMLabel.h"
+#import "FMButton.h"
 
 @interface FMMainViewController : UIViewController
+
+@property (nonatomic) FMLabel* titleLabel;
+@property (nonatomic) FMButton* startButton;
 
 @end
