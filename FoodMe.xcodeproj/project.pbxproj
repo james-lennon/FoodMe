@@ -14,7 +14,6 @@
 		435C17051BF7594B00FE3529 /* FMLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C17041BF7594B00FE3529 /* FMLocationHelper.m */; };
 		435FF3471BF6E8F200ADE8AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3461BF6E8F200ADE8AE /* main.m */; };
 		435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3491BF6E8F200ADE8AE /* AppDelegate.m */; };
-		435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF34C1BF6E8F200ADE8AE /* ViewController.m */; };
 		435FF3501BF6E8F200ADE8AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF34E1BF6E8F200ADE8AE /* Main.storyboard */; };
 		435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3511BF6E8F200ADE8AE /* Assets.xcassets */; };
 		435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */; };
@@ -30,6 +29,7 @@
 		9D8A017A1BF7F5CC00A84ABD /* FMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01791BF7F5CC00A84ABD /* FMLoadingView.m */; };
 		9D8A017C1BF7F69000A84ABD /* pot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A017B1BF7F69000A84ABD /* pot.png */; };
 		9D8A017E1BF7F69600A84ABD /* steam.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A017D1BF7F69600A84ABD /* steam.png */; };
+		9D8A01811BF7FB1B00A84ABD /* FMLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01801BF7FB1B00A84ABD /* FMLoadingViewController.m */; };
 		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
 		9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */; };
 /* End PBXBuildFile section */
@@ -48,8 +48,6 @@
 		435FF3461BF6E8F200ADE8AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		435FF3481BF6E8F200ADE8AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		435FF3491BF6E8F200ADE8AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		435FF34B1BF6E8F200ADE8AE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		435FF34C1BF6E8F200ADE8AE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		435FF34F1BF6E8F200ADE8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		435FF3511BF6E8F200ADE8AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		435FF3541BF6E8F200ADE8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,6 +72,8 @@
 		9D8A01791BF7F5CC00A84ABD /* FMLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMLoadingView.m; path = "UI Elements/FMLoadingView.m"; sourceTree = "<group>"; };
 		9D8A017B1BF7F69000A84ABD /* pot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pot.png; sourceTree = "<group>"; };
 		9D8A017D1BF7F69600A84ABD /* steam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = steam.png; sourceTree = "<group>"; };
+		9D8A017F1BF7FB1B00A84ABD /* FMLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLoadingViewController.h; sourceTree = "<group>"; };
+		9D8A01801BF7FB1B00A84ABD /* FMLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLoadingViewController.m; sourceTree = "<group>"; };
 		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
 		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
 		9DFBDC571BF6EF5800A37168 /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArray_Shuffling.h; path = QuestionView/NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
@@ -210,8 +210,6 @@
 		9DFBDC521BF6EAA100A37168 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				435FF34B1BF6E8F200ADE8AE /* ViewController.h */,
-				435FF34C1BF6E8F200ADE8AE /* ViewController.m */,
 				9D8A016D1BF794FE00A84ABD /* FMMainViewController.h */,
 				9D8A016E1BF794FE00A84ABD /* FMMainViewController.m */,
 				9D8A01721BF7A57300A84ABD /* FMTopLevelViewController.h */,
@@ -220,6 +218,8 @@
 				9D8A01761BF7A77E00A84ABD /* FMSetupViewController.m */,
 				9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */,
 				9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */,
+				9D8A017F1BF7FB1B00A84ABD /* FMLoadingViewController.h */,
+				9D8A01801BF7FB1B00A84ABD /* FMLoadingViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -361,7 +361,6 @@
 			files = (
 				435C16FE1BF73DF400FE3529 /* NSURLRequest+OAuth.m in Sources */,
 				9D8A01691BF7064800A84ABD /* FMLabel.m in Sources */,
-				435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */,
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
 				9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */,
 				435C17021BF73E8100FE3529 /* SingletonHelper.m in Sources */,
@@ -369,6 +368,7 @@
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
 				9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */,
 				9D8A01741BF7A57300A84ABD /* FMTopLevelViewController.m in Sources */,
+				9D8A01811BF7FB1B00A84ABD /* FMLoadingViewController.m in Sources */,
 				9D8A016F1BF794FE00A84ABD /* FMMainViewController.m in Sources */,
 				435C17051BF7594B00FE3529 /* FMLocationHelper.m in Sources */,
 				9D8A01771BF7A77E00A84ABD /* FMSetupViewController.m in Sources */,

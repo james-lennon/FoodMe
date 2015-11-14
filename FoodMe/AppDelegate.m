@@ -11,6 +11,8 @@
 #import "FMYelpHelper.h"
 #import "FMLocationHelper.h"
 
+#import "FMLoadingViewController.h"
+
 #import <Parse/Parse.h>
 
 
@@ -31,7 +33,8 @@
     
     [[FMLocationHelper sharedInstance] startTrackingLocation];
     
-    FMTopLevelViewController* vc = [[FMTopLevelViewController alloc] init];
+//    FMTopLevelViewController* vc = [[FMTopLevelViewController alloc] init];
+    FMLoadingViewController* vc = [[FMLoadingViewController alloc] init];
     self.window.rootViewController = vc;
     
 //    [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
