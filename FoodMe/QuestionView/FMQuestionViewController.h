@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define MAX_QUESTIONS 3
+
 @interface FMQuestionViewController : UIViewController
 
 @property NSString* question;

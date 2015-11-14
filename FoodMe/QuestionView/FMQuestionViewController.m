@@ -19,6 +19,12 @@
     if (self) {
         _question = question;
         
+        if (answers.count <= MAX_QUESTIONS) {
+            _answers = answers;
+        } else {
+            
+        }
+        
     }
     return self;
 }
