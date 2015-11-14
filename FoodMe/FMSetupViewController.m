@@ -33,8 +33,13 @@
 -(void) showQuestionVC:(NSInteger) index animated:(BOOL)animated {
     FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:_prompts[index] answers:_options[index]];
     vc.questionDelegate = self;
+    if (_currentlyDisplayedVC) {
+        [_currentlyDisplayedVC presentViewController:vc animated:animated completion:^{
+        }];
+    } else {
+        [self presentViewController:vc animated:animated completion:nil];
+    }
     _currentlyDisplayedVC = vc;
-    [self presentViewController:vc animated:animated completion:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -42,10 +47,15 @@
 }
 
 -(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question {
+    
+    // TODO: update user data with response here
+    
     _questionIndex++;
-    [_currentlyDisplayedVC dismissViewControllerAnimated:NO completion:^{
-        // TODO show next question view
-    }];
+    if (_questionIndex >= _prompts.count) {
+        [_setupDelegate setupCompleted];
+    } else {
+        [self showQuestionVC:_questionIndex animated:YES];
+    }
 }
 
 @end

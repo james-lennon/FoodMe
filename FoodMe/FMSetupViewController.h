@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "FMQuestionViewController.h"
 
+@protocol FMSetupDelegate <NSObject>
+
+-(void) setupCompleted;
+
+@end
+
 @interface FMSetupViewController : UIViewController<FMQuestionDelegate>
 
+@property (nonatomic, weak) NSObject<FMSetupDelegate>* setupDelegate;
 @property (nonatomic) NSInteger questionIndex;
 @property (nonatomic) NSArray* prompts;
 @property (nonatomic) NSArray* options;
