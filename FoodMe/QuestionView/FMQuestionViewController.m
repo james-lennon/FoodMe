@@ -40,13 +40,13 @@
     
     self.view.backgroundColor = BACKGROUND_COLOR;
     
+    CGFloat padding = 50;
     CGFloat width = self.view.frame.size.width, height = self.view.frame.size.height;
 
-    _questionLabel = [[FMLabel alloc] initWithFrame:CGRectMake(10, 50, 200, 40)];
+    _questionLabel = [[FMLabel alloc] initWithFrame:CGRectMake(padding, padding, width - 2 * padding, 200)];
     [_questionLabel setText:_question];
     [self.view addSubview:_questionLabel];
     
-    CGFloat padding = 50;
     CGFloat btnWidth = width - 2 * padding;
     CGFloat btnHeight = 50;
     for (int i = 0; i < _answers.count; i++) {

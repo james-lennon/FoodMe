@@ -16,6 +16,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textColor = TEXT_COLOR;
+        self.textAlignment = NSTextAlignmentCenter;
     }
     return self;
 }
