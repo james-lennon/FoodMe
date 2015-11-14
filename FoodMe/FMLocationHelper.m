@@ -7,6 +7,7 @@
 //
 
 #import "FMLocationHelper.h"
+#import "FMYelpHelper.h"
 
 @interface FMLocationHelper ()
 
@@ -37,6 +38,7 @@ SINGLETON_IMPL(FMLocationHelper);
 -(void) startTrackingLocation
 {
     [_mgr startUpdatingLocation];
+//    [_mgr startMonitoringSignificantLocationChanges];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -51,8 +53,13 @@ SINGLETON_IMPL(FMLocationHelper);
         
          CLPlacemark *placemark = placemarks[0];
          NSLog(@"locality: %@\n", placemark.locality);
+        
+        if(![placemark.locality isEqualToString:self.locality]) {
+            
+            self.locality = placemark.locality;
+            [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
+        }
          
-         self.locality = placemark.locality;
     }];
 }
 

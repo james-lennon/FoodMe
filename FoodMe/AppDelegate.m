@@ -32,7 +32,7 @@
     FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
     self.window.rootViewController = vc;
     
-    [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
+//    [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
     
     return YES;
 }
