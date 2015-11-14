@@ -63,11 +63,7 @@
 				9DFBDC501BF6EA8C00A37168 /* Views */,
 				435FF3481BF6E8F200ADE8AE /* AppDelegate.h */,
 				435FF3491BF6E8F200ADE8AE /* AppDelegate.m */,
-				435FF34B1BF6E8F200ADE8AE /* ViewController.h */,
-				435FF34C1BF6E8F200ADE8AE /* ViewController.m */,
-				435FF34E1BF6E8F200ADE8AE /* Main.storyboard */,
 				435FF3511BF6E8F200ADE8AE /* Assets.xcassets */,
-				435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */,
 				435FF3561BF6E8F200ADE8AE /* Info.plist */,
 				435FF3451BF6E8F200ADE8AE /* Supporting Files */,
 			);
@@ -85,6 +81,8 @@
 		9DFBDC501BF6EA8C00A37168 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				435FF34E1BF6E8F200ADE8AE /* Main.storyboard */,
+				435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -99,6 +97,8 @@
 		9DFBDC521BF6EAA100A37168 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				435FF34B1BF6E8F200ADE8AE /* ViewController.h */,
+				435FF34C1BF6E8F200ADE8AE /* ViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
