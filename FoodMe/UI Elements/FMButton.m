@@ -20,7 +20,11 @@
         self.layer.borderColor = TEXT_COLOR.CGColor;
         self.layer.borderWidth = 3;
         self.titleLabel.textColor = [UIColor blackColor];
-//        [self setTitleColor:TEXT_COLOR forState:UIControlStateNormal];
+        
+        
+        UIFont* font = [UIFont fontWithName:@"Varela" size:24];
+        [self.titleLabel setFont:font];
+        [self setTitleColor:TEXT_COLOR forState:UIControlStateNormal];
         
         [self addTarget:self action:@selector(buttonHighlight) forControlEvents:UIControlEventTouchDown];
     }

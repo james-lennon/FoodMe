@@ -20,6 +20,7 @@
 		435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */; };
 		9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01641BF6FF8100A84ABD /* FMButton.m */; };
 		9D8A01691BF7064800A84ABD /* FMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01681BF7064800A84ABD /* FMLabel.m */; };
+		9D8A016C1BF7922900A84ABD /* Varela-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A016B1BF70FB700A84ABD /* Varela-Regular.ttf */; };
 		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
 		9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		9D8A01661BF7039200A84ABD /* FMColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMColors.h; sourceTree = "<group>"; };
 		9D8A01671BF7064800A84ABD /* FMLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMLabel.h; path = "UI Elements/FMLabel.h"; sourceTree = "<group>"; };
 		9D8A01681BF7064800A84ABD /* FMLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMLabel.m; path = "UI Elements/FMLabel.m"; sourceTree = "<group>"; };
+		9D8A016B1BF70FB700A84ABD /* Varela-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Varela-Regular.ttf"; path = "../../../Downloads/Varela/Varela-Regular.ttf"; sourceTree = "<group>"; };
 		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
 		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
 		9DFBDC571BF6EF5800A37168 /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArray_Shuffling.h; path = QuestionView/NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		435FF3441BF6E8F200ADE8AE /* FoodMe */ = {
 			isa = PBXGroup;
 			children = (
+				9D8A016A1BF70FAA00A84ABD /* Resources */,
 				9DFBDC521BF6EAA100A37168 /* Controllers */,
 				9DFBDC511BF6EA9900A37168 /* Models */,
 				9DFBDC501BF6EA8C00A37168 /* Views */,
@@ -137,6 +140,14 @@
 				9D8A01681BF7064800A84ABD /* FMLabel.m */,
 			);
 			name = "UI Elements";
+			sourceTree = "<group>";
+		};
+		9D8A016A1BF70FAA00A84ABD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D8A016B1BF70FB700A84ABD /* Varela-Regular.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		9DFBDC501BF6EA8C00A37168 /* Views */ = {
@@ -245,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8A016C1BF7922900A84ABD /* Varela-Regular.ttf in Resources */,
 				435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */,
 				435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */,
 				435FF3501BF6E8F200ADE8AE /* Main.storyboard in Resources */,
