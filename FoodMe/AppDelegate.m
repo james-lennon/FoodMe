@@ -33,12 +33,9 @@
     FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
     self.window.rootViewController = vc;
     
-    [NSThread sleepForTimeInterval:2.0f];
-    
-    [[FMYelpHelper sharedInstance] queryRestsWithLocation:@"Boston" andRadiusInMeters:1000 andTerm:@"dinner" andLimit:20 andPriceDescription:@"cheap" completionHandler:^(NSArray *results, NSError *error) {
-        NSLog(@"%@", results);
-    }];
-    
+//    [[FMYelpHelper sharedInstance] queryRestsWithLocation:@"Boston" andRadiusInMeters:1000 andTerm:@"dinner" andLimit:20 andPriceDescription:@"cheap" completionHandler:^(NSArray *results, NSError *error) {
+//        NSLog(@"%@", results);
+//    }];
     
     return YES;
 }

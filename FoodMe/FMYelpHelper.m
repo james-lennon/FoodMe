@@ -42,7 +42,6 @@ static NSString * const kSearchLimit       = @"3";
 
 #pragma mark - Data Processing
 
-#warning Need to send a latitude/longitude for distance to work!!!!
 
 //rating*log(#ratings) + friend recommendations - friend dislikes -distance  + (yelp categories)
 -(double) makeRankingForRest: (NSDictionary* )biz andRankInSearch: (int) searchRanking
@@ -52,6 +51,7 @@ static NSString * const kSearchLimit       = @"3";
     double bizRating = [biz[@"rating"] doubleValue];
     int numRatings = [biz[@"review_count"] intValue];
     double distance = [biz[@"distance"] doubleValue];
+#warning make sure distance works
     
     double sumCatCoeffs = 0;
     NSArray* categories = biz[@"categories"];
