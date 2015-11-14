@@ -42,6 +42,35 @@ static NSString * const kSearchLimit       = @"3";
 
 #pragma mark - Data Processing
 
+-(NSMutableDictionary *) mutateCoefficientsForPostEating: (NSMutableDictionary *)coeffdict categoriesToMutate:(NSArray *)mutcats likedboolean:(BOOL)liked {
+   
+    if(liked) {
+        
+        for (NSString* str in mutcats) {
+            coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] + arc4random_uniform(3));
+        }
+    }
+    else {
+            
+        for (NSString* str in mutcats) {
+                
+            if([coeffdict[str] doubleValue] > 100) {
+                    
+                coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] * 0.95);
+             }
+            else {
+                
+                coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] * 0.9 - 5);
+            }
+        }
+        
+        coeffdict[@"ratingCoeff"] = @([coeffdict[@"ratingCoeff"] doubleValue] + arc4random_uniform(10)-5);
+        coeffdict[@"searchRankingCoeff"]= @([coeffdict[@"searchRankingCoeff"] doubleValue] + arc4random_uniform(8)-4);
+        coeffdict[@"distanceCoeff"]= @([coeffdict[@"distanceCoeff"] doubleValue] + arc4random_uniform(6)-3);
+    }
+    return coeffdict;
+}
+
 -(NSMutableDictionary *) mutateCoefficientsForRespin: (NSMutableDictionary *)coeffdict categoriesToMutate:(NSArray *)mutcats likedboolean:(BOOL)liked
 {
     for (NSString* str in mutcats) {
