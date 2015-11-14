@@ -32,8 +32,9 @@
 
 
 -(void)setupCompleted {
-    
-    [[self presentedViewController] presentViewController:_mainVC animated:YES completion:nil];
+//    [self.presentedViewController dismissViewControllerAnimated:NO completion:^{
+//        [self presentViewController:_mainVC animated:YES completion:nil];
+//    }];
 }
 
 @end

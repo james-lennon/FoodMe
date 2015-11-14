@@ -43,7 +43,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [self showQuestionVC:0 animated:NO];
+    if (!_currentlyDisplayedVC)
+        [self showQuestionVC:0 animated:NO];
 }
 
 -(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question {
@@ -52,7 +53,9 @@
     
     _questionIndex++;
     if (_questionIndex >= _prompts.count) {
-        [_setupDelegate setupCompleted];
+        [self dismissViewControllerAnimated:NO completion:^{
+            [_setupDelegate setupCompleted];
+        }];
     } else {
         [self showQuestionVC:_questionIndex animated:YES];
     }
