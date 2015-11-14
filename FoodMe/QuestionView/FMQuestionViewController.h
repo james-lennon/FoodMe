@@ -14,6 +14,8 @@
 
 @property NSString* question;
 @property NSArray* answers;
+@property UILabel* questionLabel;
+@property NSMutableArray* answerButtons;
 
 -(id)initWithQuestion:(NSString*)question answers:(NSArray*)answers;
 

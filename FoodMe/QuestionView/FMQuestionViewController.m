@@ -8,6 +8,8 @@
 
 #import "FMQuestionViewController.h"
 #import "NSMutableArray_Shuffling.h"
+#import "FMColors.h"
+#include "FMButton.h"
 
 @interface FMQuestionViewController ()
 
@@ -19,6 +21,7 @@
     self = [super init];
     if (self) {
         _question = question;
+        _answerButtons = [NSMutableArray array];
         
         if (answers.count <= MAX_QUESTIONS) {
             _answers = answers;
@@ -34,7 +37,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = BACKGROUND_COLOR;
+    
+    CGFloat width = self.view.frame.size.width, height = self.view.frame.size.height;
+
+    _questionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 50, 200, 40)];
+    [_questionLabel setText:_question];
+    [self.view addSubview:_questionLabel];
+    
+    CGFloat padding = 50;
+    CGFloat btnWidth = width - 2 * padding;
+    CGFloat btnHeight = 50;
+    for (int i = 0; i < _answers.count; i++) {
+        FMButton* btn = [[FMButton alloc] initWithFrame:CGRectMake(padding, 200 + i * (btnHeight + 10), btnWidth, btnHeight)];
+        [btn setTitle:_answers[i] forState:UIControlStateNormal];
+        
+        [self.view addSubview:btn];
+        [self.answerButtons addObject:btn];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

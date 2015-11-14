@@ -31,7 +31,8 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
-    [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
+//    [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
+    self.window.rootViewController = vc;
     
     return YES;
 }
