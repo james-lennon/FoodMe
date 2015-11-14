@@ -36,17 +36,6 @@
     }
 }
 
-+ (UIViewController*) topMostController
-{
-    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
-    while (topController.presentedViewController) {
-        topController = topController.presentedViewController;
-    }
-    
-    return topController;
-}
-
 -(void)setupCompleted {
     [self presentViewController:_mainVC animated:NO completion:nil];
 }

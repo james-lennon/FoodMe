@@ -44,8 +44,8 @@
             [_startButton setAlpha:0.0f];
             
         } completion:^(BOOL finished) {
-            FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
-            [self presentViewController:vc animated:YES completion:nil];
+            
+            // TODO search yelp + print result
 
         }];
     });
