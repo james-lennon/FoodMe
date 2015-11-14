@@ -14,6 +14,7 @@
 		435FF3501BF6E8F200ADE8AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF34E1BF6E8F200ADE8AE /* Main.storyboard */; };
 		435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3511BF6E8F200ADE8AE /* Assets.xcassets */; };
 		435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */; };
+		9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01641BF6FF8100A84ABD /* FMButton.m */; };
 		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
 		9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,8 @@
 		435FF3511BF6E8F200ADE8AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		435FF3541BF6E8F200ADE8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		435FF3561BF6E8F200ADE8AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D8A01631BF6FF8100A84ABD /* FMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMButton.h; path = "UI Elements/FMButton.h"; sourceTree = "<group>"; };
+		9D8A01641BF6FF8100A84ABD /* FMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMButton.m; path = "UI Elements/FMButton.m"; sourceTree = "<group>"; };
 		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
 		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
 		9DFBDC571BF6EF5800A37168 /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArray_Shuffling.h; path = QuestionView/NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 		9D8A01621BF6FEFF00A84ABD /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				9D8A01631BF6FF8100A84ABD /* FMButton.h */,
+				9D8A01641BF6FF8100A84ABD /* FMButton.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
 				9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
+				9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */,
 				9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
