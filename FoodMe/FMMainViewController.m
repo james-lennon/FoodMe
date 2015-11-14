@@ -36,4 +36,9 @@
     [self.view addSubview:_startButton];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 @end

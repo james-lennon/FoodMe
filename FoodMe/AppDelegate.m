@@ -23,6 +23,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     [Parse enableLocalDatastore];
     [Parse setApplicationId:@"YKPgMUTWs6j6YfI3PzniRqv3u9q6MJeaIiYmAAlR" clientKey:@"k5jusOyMOKwCOynpY6PwLWyVxZyhWguYjQkQeL3j"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
