@@ -135,7 +135,18 @@ static NSString * const kSearchLimit       = @"3";
     return coeffdict;
 }
 
+-(void)findRankingsWithCompletionHandler:(void (^)(NSArray *results, NSError *error))completionHandler
+{
+#warning need place to input meal
+    [self chooseRankingWithRadius:_radiusInMeters andMealTime:@"dinner" andMealPriceDesc:_priceDesc
+             andCompletionHandler: ^(NSArray *results, NSError *error) {
+                 
+        completionHandler(results, error);
+    }];
+}
+
 -(void)chooseRankingWithRadius: (double) meters andMealTime: (NSString *)mealString andMealPriceDesc: (NSString *)priceDesc
+          andCompletionHandler: (void (^)(NSArray *results, NSError *error))completionHandler
 {
     [[FMYelpHelper sharedInstance] queryRestsWithLocation:[FMLocationHelper sharedInstance].locality andRadiusInMeters:meters andTerm:mealString andLimit:5 andPriceDescription:priceDesc completionHandler:^(NSArray *results, NSError *error) {
         
@@ -150,6 +161,8 @@ static NSString * const kSearchLimit       = @"3";
             searchRanking++;
         }
         NSLog(@"%@", rankings);
+        
+        completionHandler(results, error);
     }];
 }
 
