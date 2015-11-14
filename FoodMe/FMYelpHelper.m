@@ -12,7 +12,6 @@
 @interface FMYelpHelper ()
 
 @property (nonatomic) NSUserDefaults* dflts;
-
 @property (nonatomic) NSMutableDictionary* yelpData;
 
 @end
@@ -38,8 +37,28 @@ static NSString * const kSearchLimit       = @"3";
     return self;
 }
 
+#pragma mark - Data Processing
 
-#pragma mark - Data Storage/Loading:
+#warning Need to send a latitude/longitude for distance to work!!!!
+-(double) makeRankingForRest: (NSDictionary* )biz andRankInSearch: (int) searchRanking
+{
+    //Have coefficients stored in _yelpData
+    //still need: biz ranking, num rankings, rank in search, distance, categories its in.
+    double bizRating = [biz[@"rating"] doubleValue];
+    int numRatings = [biz[@"review_count"] intValue];
+    double distance = [biz[@"distance"] doubleValue];
+    
+    
+    NSArray* categories = biz[@"categories"];
+    for (NSArray* cat in categories) {
+        
+        
+    }
+    
+    return -1;
+}
+
+#pragma mark - Data Storage/Loading
 
 //rating*log(#ratings) + friend recommendations - friend dislikes -yelp ranking  -distance  + (yelp categories)
 - (void) loadYelpData
@@ -93,7 +112,7 @@ static NSString * const kSearchLimit       = @"3";
 }
 
 
-#pragma mark - Querying Work:
+#pragma mark - Querying Work
 
 - (void) queryRestsWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit andPriceDescription: (NSString *)price
               completionHandler:(void (^)(NSArray *results, NSError *error))completionHandler
