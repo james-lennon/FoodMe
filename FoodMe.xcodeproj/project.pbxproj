@@ -13,6 +13,7 @@
 		435FF3501BF6E8F200ADE8AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF34E1BF6E8F200ADE8AE /* Main.storyboard */; };
 		435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3511BF6E8F200ADE8AE /* Assets.xcassets */; };
 		435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */; };
+		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		435FF3511BF6E8F200ADE8AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		435FF3541BF6E8F200ADE8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		435FF3561BF6E8F200ADE8AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
+		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		9DFBDC501BF6EA8C00A37168 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9DFBDC531BF6EBE800A37168 /* QuestionView */,
 				435FF34E1BF6E8F200ADE8AE /* Main.storyboard */,
 				435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */,
 			);
@@ -101,6 +105,15 @@
 				435FF34C1BF6E8F200ADE8AE /* ViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9DFBDC531BF6EBE800A37168 /* QuestionView */ = {
+			isa = PBXGroup;
+			children = (
+				9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */,
+				9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */,
+			);
+			name = QuestionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +189,7 @@
 				435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */,
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
+				9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
