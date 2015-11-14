@@ -19,7 +19,6 @@
         self.textAlignment = NSTextAlignmentCenter;
         
         UIFont* font = [UIFont fontWithName:@"Varela" size:30];
-        NSLog(@"%@\n", font);
         [self setFont:font];
     }
     return self;

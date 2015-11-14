@@ -32,13 +32,12 @@
 }
 
 -(void) buttonHighlight {
+    self.superview.userInteractionEnabled = NO;
     [UIView animateWithDuration:.15 animations:^{
         [self setBackgroundColor:TEXT_COLOR];
         [self setTitleColor: BACKGROUND_COLOR forState: UIControlStateNormal];
     } completion:^(BOOL finished) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            _completion();
-        });
+        _completion();
     }];
 }
 
