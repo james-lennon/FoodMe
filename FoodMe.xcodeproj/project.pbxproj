@@ -15,7 +15,7 @@
 		435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3511BF6E8F200ADE8AE /* Assets.xcassets */; };
 		435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */; };
 		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
-		9DFBDC591BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */; };
+		9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,8 @@
 		435FF3561BF6E8F200ADE8AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
 		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
-		9DFBDC571BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ViewController+NSMutableArray_Shuffling_h.h"; path = "QuestionView/ViewController+NSMutableArray_Shuffling_h.h"; sourceTree = "<group>"; };
-		9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ViewController+NSMutableArray_Shuffling_h.m"; path = "QuestionView/ViewController+NSMutableArray_Shuffling_h.m"; sourceTree = "<group>"; };
+		9DFBDC571BF6EF5800A37168 /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArray_Shuffling.h; path = QuestionView/NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
+		9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSMutableArray_Shuffling.m; path = QuestionView/NSMutableArray_Shuffling.m; sourceTree = "<group>"; };
 		BC9E4FA670FB0B25D8DB1C82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F6A31789D6AD663BF8F6B3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,8 +139,8 @@
 			children = (
 				9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */,
 				9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */,
-				9DFBDC571BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.h */,
-				9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */,
+				9DFBDC571BF6EF5800A37168 /* NSMutableArray_Shuffling.h */,
+				9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */,
 			);
 			name = QuestionView;
 			sourceTree = "<group>";
@@ -157,6 +157,7 @@
 				435FF33F1BF6E8F200ADE8AE /* Frameworks */,
 				435FF3401BF6E8F200ADE8AE /* Resources */,
 				F080E41775035280E9BA8722 /* Copy Pods Resources */,
+				CAB656CE69BFD4540F70DA91 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,6 +229,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		CAB656CE69BFD4540F70DA91 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F080E41775035280E9BA8722 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,7 +268,7 @@
 			files = (
 				435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */,
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
-				9DFBDC591BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m in Sources */,
+				9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
 				9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */,
 			);

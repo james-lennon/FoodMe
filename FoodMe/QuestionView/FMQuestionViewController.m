@@ -7,6 +7,7 @@
 //
 
 #import "FMQuestionViewController.h"
+#import "NSMutableArray_Shuffling.h"
 
 @interface FMQuestionViewController ()
 
@@ -22,9 +23,11 @@
         if (answers.count <= MAX_QUESTIONS) {
             _answers = answers;
         } else {
+            NSMutableArray* newList = [answers mutableCopy];
+            [newList shuffle];
             
+            _answers = @[newList[0], newList[1], newList[2]];
         }
-        
     }
     return self;
 }
