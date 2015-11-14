@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "FMQuestionViewController.h"
 #import "FMYelpHelper.h"
+#import "FMLocationHelper.h"
 
 #import <Parse/Parse.h>
 
@@ -21,20 +22,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     [Parse enableLocalDatastore];
-    
-    // Initialize Parse.
-    [Parse setApplicationId:@"YKPgMUTWs6j6YfI3PzniRqv3u9q6MJeaIiYmAAlR"
-                  clientKey:@"k5jusOyMOKwCOynpY6PwLWyVxZyhWguYjQkQeL3j"];
-    
-    // [Optional] Track statistics around application opens.
+    [Parse setApplicationId:@"YKPgMUTWs6j6YfI3PzniRqv3u9q6MJeaIiYmAAlR" clientKey:@"k5jusOyMOKwCOynpY6PwLWyVxZyhWguYjQkQeL3j"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    
+    [[FMLocationHelper sharedInstance] startTrackingLocation];
+    
     FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
-//    [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
     self.window.rootViewController = vc;
+    
+    [NSThread sleepForTimeInterval:2.0f];
     
     [[FMYelpHelper sharedInstance] queryRestsWithLocation:@"Boston" andRadiusInMeters:1000 andTerm:@"dinner" andLimit:20 andPriceDescription:@"cheap" completionHandler:^(NSArray *results, NSError *error) {
         NSLog(@"%@", results);

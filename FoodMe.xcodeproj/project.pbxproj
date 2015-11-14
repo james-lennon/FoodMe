@@ -11,6 +11,7 @@
 		435C16FE1BF73DF400FE3529 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C16FA1BF73DF400FE3529 /* NSURLRequest+OAuth.m */; };
 		435C16FF1BF73DF400FE3529 /* FMYelpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C16FB1BF73DF400FE3529 /* FMYelpHelper.m */; };
 		435C17021BF73E8100FE3529 /* SingletonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C17011BF73E8100FE3529 /* SingletonHelper.m */; };
+		435C17051BF7594B00FE3529 /* FMLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C17041BF7594B00FE3529 /* FMLocationHelper.m */; };
 		435FF3471BF6E8F200ADE8AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3461BF6E8F200ADE8AE /* main.m */; };
 		435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3491BF6E8F200ADE8AE /* AppDelegate.m */; };
 		435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF34C1BF6E8F200ADE8AE /* ViewController.m */; };
@@ -31,6 +32,8 @@
 		435C16FD1BF73DF400FE3529 /* NSURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+OAuth.h"; sourceTree = "<group>"; };
 		435C17001BF73E8100FE3529 /* SingletonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonHelper.h; sourceTree = "<group>"; };
 		435C17011BF73E8100FE3529 /* SingletonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonHelper.m; sourceTree = "<group>"; };
+		435C17031BF7594B00FE3529 /* FMLocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLocationHelper.h; sourceTree = "<group>"; };
+		435C17041BF7594B00FE3529 /* FMLocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLocationHelper.m; sourceTree = "<group>"; };
 		435FF3421BF6E8F200ADE8AE /* FoodMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		435FF3461BF6E8F200ADE8AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		435FF3481BF6E8F200ADE8AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				435C17011BF73E8100FE3529 /* SingletonHelper.m */,
 				435C16FD1BF73DF400FE3529 /* NSURLRequest+OAuth.h */,
 				435C16FA1BF73DF400FE3529 /* NSURLRequest+OAuth.m */,
+				435C17031BF7594B00FE3529 /* FMLocationHelper.h */,
+				435C17041BF7594B00FE3529 /* FMLocationHelper.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				435C17021BF73E8100FE3529 /* SingletonHelper.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
 				9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */,
+				435C17051BF7594B00FE3529 /* FMLocationHelper.m in Sources */,
 				435C16FF1BF73DF400FE3529 /* FMYelpHelper.m in Sources */,
 				9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */,
 			);

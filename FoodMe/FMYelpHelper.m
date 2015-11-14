@@ -8,6 +8,7 @@
 
 #import "FMYelpHelper.h"
 #import "NSURLRequest+OAuth.h"
+#import "FMLocationHelper.h"
 
 @interface FMYelpHelper ()
 
@@ -33,6 +34,8 @@ static NSString * const kSearchLimit       = @"3";
     if(self = [super init]) {
         
         _dflts = [NSUserDefaults standardUserDefaults];
+        
+        [self loadYelpData];
     }
     return self;
 }
@@ -128,7 +131,11 @@ static NSString * const kSearchLimit       = @"3";
     
     NSString* newTerm = [NSString stringWithFormat:@"%@ %@", price, term];
     
-    NSURLRequest *searchRequest = [self createSearchWithLocation:location andRadiusInMeters:meters andTerm:newTerm andLimit:limit];
+    
+    double lat = [FMLocationHelper sharedInstance].curLoc.coordinate.latitude;
+    double longit = [FMLocationHelper sharedInstance].curLoc.coordinate.longitude;
+    
+    NSURLRequest *searchRequest = [self createSearchWithLocation:location andRadiusInMeters:meters andTerm:newTerm andLimit:limit andLat:lat andLong:longit];
     NSURLSession *session = [NSURLSession sharedSession];
 
     [[session dataTaskWithRequest:searchRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -175,13 +182,14 @@ static NSString * const kSearchLimit       = @"3";
     return toRet;
 }
 
-- (NSURLRequest *) createSearchWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit
+- (NSURLRequest *) createSearchWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit andLat: (double) latitude andLong: (double) longitude
 {
     NSDictionary* params = @{
                              @"location": location,
                              @"limit": [NSString stringWithFormat:@"%i",limit],
                              @"term": term,
                              @"radius_filter": [NSString stringWithFormat:@"%f", meters],
+                             @"cll": [NSString stringWithFormat:@"%f,%f", latitude,longitude]
                              };
     
     return [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];
