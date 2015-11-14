@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FMQuestionViewController.h"
 
 #import <Parse/Parse.h>
 
@@ -28,6 +29,9 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad"]];
+    [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
     
     return YES;
 }
