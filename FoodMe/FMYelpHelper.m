@@ -42,6 +42,27 @@ static NSString * const kSearchLimit       = @"3";
 
 #pragma mark - Data Processing
 
+-(NSMutableDictionary *) mutateCoefficientsForRespin: (NSMutableDictionary *)coeffdict categoriesToMutate:(NSArray *)mutcats likedboolean:(BOOL)liked
+{
+    for (NSString* str in mutcats) {
+        
+        if(liked) {
+            
+            coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] + 5);
+        }
+        else {
+            if([coeffdict[str] doubleValue] > 100) {
+                coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] * 0.9);
+            }
+            else {
+                coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] * 0.7 - 5);
+            }
+        }
+    }
+    
+    return coeffdict;
+}
+
 -(void)chooseRankingWithRadius: (double) meters andMealTime: (NSString *)mealString andMealPriceDesc: (NSString *)priceDesc
 {
     [[FMYelpHelper sharedInstance] queryRestsWithLocation:[FMLocationHelper sharedInstance].locality andRadiusInMeters:meters andTerm:mealString andLimit:5 andPriceDescription:priceDesc completionHandler:^(NSArray *results, NSError *error) {
