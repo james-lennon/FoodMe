@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FMLabel.h"
 
-#define MAX_QUESTIONS 3
+#define MAX_QUESTIONS 4
 
 @protocol FMQuestionDelegate <NSObject>
 

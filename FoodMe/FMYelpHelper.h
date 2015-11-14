@@ -13,7 +13,7 @@
 
 SINGLETON_INTR(FMYelpHelper);
 
--(void)findRankingsWithCompletionHandler:(void (^)(NSArray *results, NSError *error))completionHandler;
+-(void)findTopBiz:(void (^)(NSDictionary *biz, NSError *error))completionHandler;
 -(void) saveYelpData;
 
 -(void) setSearchRadiusBasedOnTime: (NSString *)timeRange;

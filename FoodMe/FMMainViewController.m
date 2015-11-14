@@ -9,6 +9,7 @@
 #import "FMMainViewController.h"
 #import "FMColors.h"
 #import "FMQuestionViewController.h"
+#import "FMYelpHelper.h"
 
 @implementation FMMainViewController
 
@@ -45,8 +46,10 @@
             
         } completion:^(BOOL finished) {
             
-            // TODO search yelp + print result
-
+            [[FMYelpHelper sharedInstance] findTopBiz:^(NSDictionary *biz, NSError *error) {
+                
+                NSLog(@"Top business: %@", biz);
+            }];
         }];
     });
 }

@@ -141,17 +141,33 @@ static NSString * const kSearchLimit       = @"3";
     return coeffdict;
 }
 
--(void)findRankingsWithCompletionHandler:(void (^)(NSArray *results, NSError *error))completionHandler
+-(void)findTopBiz:(void (^)(NSDictionary *biz, NSError *error))completionHandler
 {
     [self chooseRankingWithRadius:_radiusInMeters andMealTime:_mealDesc andMealPriceDesc:_priceDesc
-             andCompletionHandler: ^(NSArray *results, NSError *error) {
+             andCompletionHandler: ^(NSArray *bizzes, NSArray* rankings, NSError *error) {
                  
-        completionHandler(results, error);
+                 NSMutableArray* toTupleArray = [NSMutableArray array];
+                 
+                 int i = 0;
+                 for (NSDictionary* biz in bizzes) {
+                     [toTupleArray addObject: @[biz, rankings[i]]];
+                     i++;
+                 }
+                 
+                 NSArray* sortedArray;
+                 sortedArray = [toTupleArray sortedArrayUsingComparator:^NSComparisonResult(NSArray* a, NSArray* b) {
+                     double rank1 = [a[1] doubleValue];
+                     double rank2 = [b[1] doubleValue];
+                     
+                     return rank1 > rank2;
+                 }];
+                 
+                 completionHandler(sortedArray[0][0], error);
     }];
 }
 
 -(void)chooseRankingWithRadius: (double) meters andMealTime: (NSString *)mealString andMealPriceDesc: (NSString *)priceDesc
-          andCompletionHandler: (void (^)(NSArray *results, NSError *error))completionHandler
+          andCompletionHandler: (void (^)(NSArray *bizzes, NSArray* rankings, NSError *error))completionHandler
 {
     [[FMYelpHelper sharedInstance] queryRestsWithLocation:[FMLocationHelper sharedInstance].locality andRadiusInMeters:meters andTerm:mealString andLimit:5 andPriceDescription:priceDesc completionHandler:^(NSArray *results, NSError *error) {
         
@@ -167,7 +183,7 @@ static NSString * const kSearchLimit       = @"3";
         }
         NSLog(@"%@", rankings);
         
-        completionHandler(results, error);
+        completionHandler(results, rankings, error);
     }];
 }
 
