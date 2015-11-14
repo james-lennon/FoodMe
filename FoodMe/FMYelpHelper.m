@@ -94,12 +94,12 @@ static NSString * const kSearchLimit       = @"3";
     NSDictionary* yelpData = [_dflts objectForKey:@"yelpData"];
     
     if(!yelpData) {
-        
+    
         NSMutableDictionary* newData = [NSMutableDictionary dictionary];
         
-        newData[@"ratingCoeff"] = @(1);
-        newData[@"searchRankingCoeff"] = @(1);
-        newData[@"distanceCoeff"] = @(1);
+        newData[@"ratingCoeff"] = @(50);
+        newData[@"searchRankingCoeff"] = @(30);
+        newData[@"distanceCoeff"] = @(25);
         newData[@"categoryCoeffs"] = @{}; //This will be updated every search to autofill categoreis instead of manual input of each category.;
         
         _yelpData = newData;
@@ -116,7 +116,7 @@ static NSString * const kSearchLimit       = @"3";
     if (!_yelpData[@"categoryCoeffs"][catName]) {
         
         NSMutableDictionary* newDict = [NSMutableDictionary dictionaryWithDictionary:_yelpData[@"categoryCoeffs"]];
-        [newDict setObject:@(1) forKey:catName];
+        [newDict setObject:@(110) forKey:catName];
         _yelpData[@"categoryCoeffs"] = newDict;
     }
 }
