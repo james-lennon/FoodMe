@@ -14,6 +14,7 @@
 		435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3511BF6E8F200ADE8AE /* Assets.xcassets */; };
 		435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */; };
 		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
+		9DFBDC591BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		435FF3561BF6E8F200ADE8AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
 		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
+		9DFBDC571BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ViewController+NSMutableArray_Shuffling_h.h"; path = "QuestionView/ViewController+NSMutableArray_Shuffling_h.h"; sourceTree = "<group>"; };
+		9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ViewController+NSMutableArray_Shuffling_h.m"; path = "QuestionView/ViewController+NSMutableArray_Shuffling_h.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 			children = (
 				9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */,
 				9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */,
+				9DFBDC571BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.h */,
+				9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */,
 			);
 			name = QuestionView;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			files = (
 				435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */,
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
+				9DFBDC591BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
 				9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */,
 			);
