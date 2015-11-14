@@ -40,6 +40,8 @@ static NSString * const kSearchLimit       = @"3";
 #pragma mark - Data Processing
 
 #warning Need to send a latitude/longitude for distance to work!!!!
+
+//rating*log(#ratings) + friend recommendations - friend dislikes -distance  + (yelp categories)
 -(double) makeRankingForRest: (NSDictionary* )biz andRankInSearch: (int) searchRanking
 {
     //Have coefficients stored in _yelpData
@@ -48,19 +50,24 @@ static NSString * const kSearchLimit       = @"3";
     int numRatings = [biz[@"review_count"] intValue];
     double distance = [biz[@"distance"] doubleValue];
     
-    
+    double sumCatCoeffs = 0;
     NSArray* categories = biz[@"categories"];
     for (NSArray* cat in categories) {
         
-        
+        sumCatCoeffs += [_yelpData[cat[1]] doubleValue];
     }
     
-    return -1;
+    double avgCatCoeff = sumCatCoeffs / categories.count;
+    
+    double adjustedRating = [_yelpData[@"ratingCoeff"] doubleValue] * bizRating * log(numRatings);
+    double adjustedDistance = [_yelpData[@"distanceCoeff"] doubleValue] * distance;
+    double adjustedSearchRanking = [_yelpData[@"searchRankingCoeff"] doubleValue] *searchRanking;
+    
+    return adjustedRating + adjustedDistance - adjustedSearchRanking + avgCatCoeff;
 }
 
 #pragma mark - Data Storage/Loading
 
-//rating*log(#ratings) + friend recommendations - friend dislikes -yelp ranking  -distance  + (yelp categories)
 - (void) loadYelpData
 {
     NSDictionary* yelpData = [_dflts objectForKey:@"yelpData"];
