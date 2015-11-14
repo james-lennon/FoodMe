@@ -18,6 +18,9 @@
 		435FF3501BF6E8F200ADE8AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF34E1BF6E8F200ADE8AE /* Main.storyboard */; };
 		435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3511BF6E8F200ADE8AE /* Assets.xcassets */; };
 		435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */; };
+		4380E4D11BF7982C00BD76D8 /* FMDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4380E4D01BF7982C00BD76D8 /* FMDataLoader.m */; };
+		4380E4D31BF798F800BD76D8 /* questions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4380E4D21BF798F800BD76D8 /* questions.txt */; };
+		4380E4D51BF7997C00BD76D8 /* loadmessages.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4380E4D41BF7997C00BD76D8 /* loadmessages.txt */; };
 		9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01641BF6FF8100A84ABD /* FMButton.m */; };
 		9D8A01691BF7064800A84ABD /* FMLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01681BF7064800A84ABD /* FMLabel.m */; };
 		9D8A016F1BF794FE00A84ABD /* FMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A016E1BF794FE00A84ABD /* FMMainViewController.m */; };
@@ -48,6 +51,10 @@
 		435FF3511BF6E8F200ADE8AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		435FF3541BF6E8F200ADE8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		435FF3561BF6E8F200ADE8AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4380E4CF1BF7982C00BD76D8 /* FMDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDataLoader.h; sourceTree = "<group>"; };
+		4380E4D01BF7982C00BD76D8 /* FMDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDataLoader.m; sourceTree = "<group>"; };
+		4380E4D21BF798F800BD76D8 /* questions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = questions.txt; sourceTree = "<group>"; };
+		4380E4D41BF7997C00BD76D8 /* loadmessages.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loadmessages.txt; sourceTree = "<group>"; };
 		9D8A01631BF6FF8100A84ABD /* FMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMButton.h; path = "UI Elements/FMButton.h"; sourceTree = "<group>"; };
 		9D8A01641BF6FF8100A84ABD /* FMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMButton.m; path = "UI Elements/FMButton.m"; sourceTree = "<group>"; };
 		9D8A01661BF7039200A84ABD /* FMColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMColors.h; sourceTree = "<group>"; };
@@ -154,6 +161,8 @@
 		9D8A016A1BF70FAA00A84ABD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4380E4D41BF7997C00BD76D8 /* loadmessages.txt */,
+				4380E4D21BF798F800BD76D8 /* questions.txt */,
 				9D8A01701BF7956A00A84ABD /* Varela-Regular.ttf */,
 			);
 			name = Resources;
@@ -181,6 +190,8 @@
 				435C16FA1BF73DF400FE3529 /* NSURLRequest+OAuth.m */,
 				435C17031BF7594B00FE3529 /* FMLocationHelper.h */,
 				435C17041BF7594B00FE3529 /* FMLocationHelper.m */,
+				4380E4CF1BF7982C00BD76D8 /* FMDataLoader.h */,
+				4380E4D01BF7982C00BD76D8 /* FMDataLoader.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -223,7 +234,7 @@
 				435FF33F1BF6E8F200ADE8AE /* Frameworks */,
 				435FF3401BF6E8F200ADE8AE /* Resources */,
 				F080E41775035280E9BA8722 /* Copy Pods Resources */,
-				FAD69B27CD439EC835057867 /* Embed Pods Frameworks */,
+				90F274FA43AD816EFB19131E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,9 +282,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4380E4D51BF7997C00BD76D8 /* loadmessages.txt in Resources */,
 				9D8A01711BF7958400A84ABD /* Varela-Regular.ttf in Resources */,
 				435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */,
 				435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */,
+				4380E4D31BF798F800BD76D8 /* questions.txt in Resources */,
 				435FF3501BF6E8F200ADE8AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +309,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		90F274FA43AD816EFB19131E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F080E41775035280E9BA8722 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,21 +337,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FAD69B27CD439EC835057867 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -345,6 +358,7 @@
 				9D8A016F1BF794FE00A84ABD /* FMMainViewController.m in Sources */,
 				435C17051BF7594B00FE3529 /* FMLocationHelper.m in Sources */,
 				9D8A01771BF7A77E00A84ABD /* FMSetupViewController.m in Sources */,
+				4380E4D11BF7982C00BD76D8 /* FMDataLoader.m in Sources */,
 				435C16FF1BF73DF400FE3529 /* FMYelpHelper.m in Sources */,
 				9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */,
 			);
