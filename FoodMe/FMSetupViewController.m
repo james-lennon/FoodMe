@@ -61,9 +61,7 @@
 }
 
 -(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question {
-    
-    // TODO: update user data with response here
-    
+        
     if (_questionIndex == 1) {
         [[FMYelpHelper sharedInstance] setPriceDescBasedOnResponse:answer];
     }
