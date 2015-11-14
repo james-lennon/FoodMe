@@ -58,6 +58,9 @@
 		435FF3441BF6E8F200ADE8AE /* FoodMe */ = {
 			isa = PBXGroup;
 			children = (
+				9DFBDC521BF6EAA100A37168 /* Controllers */,
+				9DFBDC511BF6EA9900A37168 /* Models */,
+				9DFBDC501BF6EA8C00A37168 /* Views */,
 				435FF3481BF6E8F200ADE8AE /* AppDelegate.h */,
 				435FF3491BF6E8F200ADE8AE /* AppDelegate.m */,
 				435FF34B1BF6E8F200ADE8AE /* ViewController.h */,
@@ -77,6 +80,27 @@
 				435FF3461BF6E8F200ADE8AE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DFBDC501BF6EA8C00A37168 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9DFBDC511BF6EA9900A37168 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9DFBDC521BF6EAA100A37168 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +324,7 @@
 				435FF35B1BF6E8F200ADE8AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
