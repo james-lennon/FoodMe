@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		352970BA70829A8EAA439C87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9E4FA670FB0B25D8DB1C82 /* libPods.a */; };
 		435FF3471BF6E8F200ADE8AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3461BF6E8F200ADE8AE /* main.m */; };
 		435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3491BF6E8F200ADE8AE /* AppDelegate.m */; };
 		435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF34C1BF6E8F200ADE8AE /* ViewController.m */; };
 		435FF3501BF6E8F200ADE8AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF34E1BF6E8F200ADE8AE /* Main.storyboard */; };
 		435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3511BF6E8F200ADE8AE /* Assets.xcassets */; };
 		435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */; };
-		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
-		9DFBDC591BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */; };
+		841DD128AB7E90A973DAD330 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F90FBE354CD53778C16CA113 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2750B30E7A3808AF7FA96A9E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		0B8C1E50B5A12B501357D6FE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1A4F26E3F38B0A37E10C3CF4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		435FF3421BF6E8F200ADE8AE /* FoodMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		435FF3461BF6E8F200ADE8AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		435FF3481BF6E8F200ADE8AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,12 +29,7 @@
 		435FF3511BF6E8F200ADE8AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		435FF3541BF6E8F200ADE8AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		435FF3561BF6E8F200ADE8AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
-		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
-		9DFBDC571BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ViewController+NSMutableArray_Shuffling_h.h"; path = "QuestionView/ViewController+NSMutableArray_Shuffling_h.h"; sourceTree = "<group>"; };
-		9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ViewController+NSMutableArray_Shuffling_h.m"; path = "QuestionView/ViewController+NSMutableArray_Shuffling_h.m"; sourceTree = "<group>"; };
-		BC9E4FA670FB0B25D8DB1C82 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8F6A31789D6AD663BF8F6B3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F90FBE354CD53778C16CA113 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352970BA70829A8EAA439C87 /* libPods.a in Frameworks */,
+				841DD128AB7E90A973DAD330 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +49,8 @@
 			children = (
 				435FF3441BF6E8F200ADE8AE /* FoodMe */,
 				435FF3431BF6E8F200ADE8AE /* Products */,
-				8E331B0EF45FC5E52B37D88B /* Pods */,
-				54764A93F43A798EA00FC43B /* Frameworks */,
+				D0919AE636DB7AA1F3FD4F58 /* Pods */,
+				D5B449398A8D977A2A0DE3E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,27 +85,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		54764A93F43A798EA00FC43B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BC9E4FA670FB0B25D8DB1C82 /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8E331B0EF45FC5E52B37D88B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E8F6A31789D6AD663BF8F6B3 /* Pods.debug.xcconfig */,
-				2750B30E7A3808AF7FA96A9E /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
+<<<<<<< HEAD
 		9DFBDC501BF6EA8C00A37168 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9DFBDC531BF6EBE800A37168 /* QuestionView */,
 				435FF34E1BF6E8F200ADE8AE /* Main.storyboard */,
 				435FF3531BF6E8F200ADE8AE /* LaunchScreen.storyboard */,
 			);
@@ -132,17 +109,23 @@
 				435FF34C1BF6E8F200ADE8AE /* ViewController.m */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		9DFBDC531BF6EBE800A37168 /* QuestionView */ = {
+=======
+		D0919AE636DB7AA1F3FD4F58 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */,
-				9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */,
-				9DFBDC571BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.h */,
-				9DFBDC581BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m */,
+				1A4F26E3F38B0A37E10C3CF4 /* Pods.debug.xcconfig */,
+				0B8C1E50B5A12B501357D6FE /* Pods.release.xcconfig */,
 			);
-			name = QuestionView;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D5B449398A8D977A2A0DE3E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F90FBE354CD53778C16CA113 /* libPods.a */,
+			);
+			name = Frameworks;
+>>>>>>> ParseIntegration
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,11 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 435FF3591BF6E8F200ADE8AE /* Build configuration list for PBXNativeTarget "FoodMe" */;
 			buildPhases = (
-				615A85F2BEC1ADCCE7BF9F2A /* Check Pods Manifest.lock */,
+				80493CA2ACF240F80E76F757 /* Check Pods Manifest.lock */,
 				435FF33E1BF6E8F200ADE8AE /* Sources */,
 				435FF33F1BF6E8F200ADE8AE /* Frameworks */,
 				435FF3401BF6E8F200ADE8AE /* Resources */,
-				F080E41775035280E9BA8722 /* Copy Pods Resources */,
+				666105ED55D1C0231D6B95BF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,22 +196,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		615A85F2BEC1ADCCE7BF9F2A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F080E41775035280E9BA8722 /* Copy Pods Resources */ = {
+		666105ED55D1C0231D6B95BF /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -243,6 +211,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		80493CA2ACF240F80E76F757 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -252,9 +235,7 @@
 			files = (
 				435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */,
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
-				9DFBDC591BF6EF5800A37168 /* ViewController+NSMutableArray_Shuffling_h.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
-				9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +345,7 @@
 		};
 		435FF35A1BF6E8F200ADE8AE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8F6A31789D6AD663BF8F6B3 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 1A4F26E3F38B0A37E10C3CF4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FoodMe/Info.plist;
@@ -376,7 +357,7 @@
 		};
 		435FF35B1BF6E8F200ADE8AE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2750B30E7A3808AF7FA96A9E /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0B8C1E50B5A12B501357D6FE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FoodMe/Info.plist;
