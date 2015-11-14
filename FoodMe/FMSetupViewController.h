@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMQuestionViewController.h"
 
 @interface FMSetupViewController : UIViewController<FMQuestionDelegate>
 
 @property (nonatomic) NSInteger questionIndex;
 @property (nonatomic) NSArray* prompts;
 @property (nonatomic) NSArray* options;
+@property (nonatomic) FMQuestionViewController* currentlyDisplayedVC;
 
 -(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question;
 

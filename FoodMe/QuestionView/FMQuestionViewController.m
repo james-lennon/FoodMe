@@ -84,9 +84,6 @@
             
             [_questionDelegate answerChosen:_answers[index] WithQuestion:_question];
             
-            FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
-            [self presentViewController:vc animated:YES completion:nil];
-            
         }];
     });
 }

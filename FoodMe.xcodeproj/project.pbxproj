@@ -196,6 +196,8 @@
 				9D8A01731BF7A57300A84ABD /* FMTopLevelViewController.m */,
 				9D8A01751BF7A77E00A84ABD /* FMSetupViewController.h */,
 				9D8A01761BF7A77E00A84ABD /* FMSetupViewController.m */,
+				9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */,
+				9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -203,8 +205,6 @@
 		9DFBDC531BF6EBE800A37168 /* QuestionView */ = {
 			isa = PBXGroup;
 			children = (
-				9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */,
-				9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */,
 				9DFBDC571BF6EF5800A37168 /* NSMutableArray_Shuffling.h */,
 				9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */,
 			);

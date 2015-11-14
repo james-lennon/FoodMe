@@ -7,7 +7,7 @@
 //
 
 #import "FMTopLevelViewController.h"
-#import "FMQuestionViewController.h"
+#import "FMSetupViewController.h"
 
 @implementation FMTopLevelViewController
 
@@ -25,7 +25,8 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [self presentViewController:_mainVC animated:NO completion:nil];
+    FMSetupViewController* vc = [[FMSetupViewController alloc] init];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 

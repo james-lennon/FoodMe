@@ -31,8 +31,9 @@
 }
 
 -(void) showQuestionVC:(NSInteger) index animated:(BOOL)animated {
-    
     FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:_prompts[index] answers:_options[index]];
+    vc.questionDelegate = self;
+    _currentlyDisplayedVC = vc;
     [self presentViewController:vc animated:animated completion:nil];
 }
 
@@ -42,7 +43,9 @@
 
 -(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question {
     _questionIndex++;
-    [self showQuestionVC:_questionIndex animated:YES];
+    [_currentlyDisplayedVC dismissViewControllerAnimated:NO completion:^{
+        // TODO show next question view
+    }];
 }
 
 @end
