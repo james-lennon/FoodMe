@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		352970BA70829A8EAA439C87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9E4FA670FB0B25D8DB1C82 /* libPods.a */; };
+		435C16FE1BF73DF400FE3529 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C16FA1BF73DF400FE3529 /* NSURLRequest+OAuth.m */; };
+		435C16FF1BF73DF400FE3529 /* FMYelpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C16FB1BF73DF400FE3529 /* FMYelpHelper.m */; };
+		435C17021BF73E8100FE3529 /* SingletonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C17011BF73E8100FE3529 /* SingletonHelper.m */; };
+		435C17051BF7594B00FE3529 /* FMLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C17041BF7594B00FE3529 /* FMLocationHelper.m */; };
 		435FF3471BF6E8F200ADE8AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3461BF6E8F200ADE8AE /* main.m */; };
 		435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3491BF6E8F200ADE8AE /* AppDelegate.m */; };
 		435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF34C1BF6E8F200ADE8AE /* ViewController.m */; };
@@ -22,6 +26,14 @@
 
 /* Begin PBXFileReference section */
 		2750B30E7A3808AF7FA96A9E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		435C16FA1BF73DF400FE3529 /* NSURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+OAuth.m"; sourceTree = "<group>"; };
+		435C16FB1BF73DF400FE3529 /* FMYelpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYelpHelper.m; sourceTree = "<group>"; };
+		435C16FC1BF73DF400FE3529 /* FMYelpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYelpHelper.h; sourceTree = "<group>"; };
+		435C16FD1BF73DF400FE3529 /* NSURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+OAuth.h"; sourceTree = "<group>"; };
+		435C17001BF73E8100FE3529 /* SingletonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonHelper.h; sourceTree = "<group>"; };
+		435C17011BF73E8100FE3529 /* SingletonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonHelper.m; sourceTree = "<group>"; };
+		435C17031BF7594B00FE3529 /* FMLocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLocationHelper.h; sourceTree = "<group>"; };
+		435C17041BF7594B00FE3529 /* FMLocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLocationHelper.m; sourceTree = "<group>"; };
 		435FF3421BF6E8F200ADE8AE /* FoodMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		435FF3461BF6E8F200ADE8AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		435FF3481BF6E8F200ADE8AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -141,6 +153,14 @@
 		9DFBDC511BF6EA9900A37168 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				435C16FC1BF73DF400FE3529 /* FMYelpHelper.h */,
+				435C16FB1BF73DF400FE3529 /* FMYelpHelper.m */,
+				435C17001BF73E8100FE3529 /* SingletonHelper.h */,
+				435C17011BF73E8100FE3529 /* SingletonHelper.m */,
+				435C16FD1BF73DF400FE3529 /* NSURLRequest+OAuth.h */,
+				435C16FA1BF73DF400FE3529 /* NSURLRequest+OAuth.m */,
+				435C17031BF7594B00FE3529 /* FMLocationHelper.h */,
+				435C17041BF7594B00FE3529 /* FMLocationHelper.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -177,7 +197,6 @@
 				435FF33F1BF6E8F200ADE8AE /* Frameworks */,
 				435FF3401BF6E8F200ADE8AE /* Resources */,
 				F080E41775035280E9BA8722 /* Copy Pods Resources */,
-				CAB656CE69BFD4540F70DA91 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,21 +268,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		CAB656CE69BFD4540F70DA91 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F080E41775035280E9BA8722 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,12 +290,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				435C16FE1BF73DF400FE3529 /* NSURLRequest+OAuth.m in Sources */,
 				9D8A01691BF7064800A84ABD /* FMLabel.m in Sources */,
 				435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */,
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
 				9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */,
+				435C17021BF73E8100FE3529 /* SingletonHelper.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
 				9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */,
+				435C17051BF7594B00FE3529 /* FMLocationHelper.m in Sources */,
+				435C16FF1BF73DF400FE3529 /* FMYelpHelper.m in Sources */,
 				9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
