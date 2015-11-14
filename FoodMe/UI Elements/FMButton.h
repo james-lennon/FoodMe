@@ -10,4 +10,8 @@
 
 @interface FMButton : UIButton
 
+@property (nonatomic, copy) void (^completion)();
+
+-(id)initWithFrame:(CGRect)frame completion:(void (^)())completion;
+
 @end

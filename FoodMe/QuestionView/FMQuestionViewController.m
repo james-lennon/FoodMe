@@ -42,7 +42,7 @@
     
     CGFloat width = self.view.frame.size.width, height = self.view.frame.size.height;
 
-    _questionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 50, 200, 40)];
+    _questionLabel = [[FMLabel alloc] initWithFrame:CGRectMake(10, 50, 200, 40)];
     [_questionLabel setText:_question];
     [self.view addSubview:_questionLabel];
     
@@ -50,7 +50,9 @@
     CGFloat btnWidth = width - 2 * padding;
     CGFloat btnHeight = 50;
     for (int i = 0; i < _answers.count; i++) {
-        FMButton* btn = [[FMButton alloc] initWithFrame:CGRectMake(padding, 200 + i * (btnHeight + 10), btnWidth, btnHeight)];
+        FMButton* btn = [[FMButton alloc] initWithFrame:CGRectMake(padding, 200 + i * (btnHeight + 10), btnWidth, btnHeight) completion:^{
+            NSLog(@"selected: %@\n", _answers[i]);
+        }];
         [btn setTitle:_answers[i] forState:UIControlStateNormal];
         
         [self.view addSubview:btn];

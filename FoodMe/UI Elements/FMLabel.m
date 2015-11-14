@@ -7,7 +7,17 @@
 //
 
 #import "FMLabel.h"
+#import "FMColors.h"
 
 @implementation FMLabel
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.textColor = TEXT_COLOR;
+    }
+    return self;
+}
 
 @end

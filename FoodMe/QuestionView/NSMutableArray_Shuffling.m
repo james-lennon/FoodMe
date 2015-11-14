@@ -10,8 +10,7 @@
 
 @implementation NSMutableArray (Shuffling)
 
-- (void)shuffle
-{
+- (void)shuffle {
     NSUInteger count = [self count];
     for (NSUInteger i = 0; i < count - 1; ++i) {
         NSInteger remainingCount = count - i;
