@@ -22,6 +22,8 @@ SINGLETON_IMPL(FMLocationHelper);
 {
     if(self = [super init]) {
         
+        _locality = @"";
+        
         _mgr = [[CLLocationManager alloc] init];
         _mgr.delegate = self;
         _mgr.distanceFilter = kCLDistanceFilterNone;
@@ -41,6 +43,17 @@ SINGLETON_IMPL(FMLocationHelper);
 //    NSLog(@"OldLocation %f %f", oldLocation.coordinate.latitude, oldLocation.coordinate.longitude);
 //    NSLog(@"NewLocation %f %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
     _curLoc = newLocation;
+    
+    CLLocation *location = newLocation;
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+         CLPlacemark *placemark = placemarks[0];
+         NSLog(@"locality: %@\n", placemark.locality);
+         
+         self.locality = placemark.locality;
+    }];
 }
 
 @end

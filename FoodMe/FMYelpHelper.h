@@ -13,9 +13,8 @@
 
 SINGLETON_INTR(FMYelpHelper);
 
-- (void) queryRestsWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit andPriceDescription: (NSString *)price
-              completionHandler:(void (^)(NSArray *results, NSError *error))completionHandler;
 
-- (void) saveYelpData;
+-(void) saveYelpData;
+-(void) chooseRankingWithRadius: (double) meters andMealTime: (NSString *)mealString andMealPriceDesc: (NSString *)priceDesc;
 
 @end

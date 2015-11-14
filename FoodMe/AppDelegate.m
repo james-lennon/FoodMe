@@ -27,15 +27,12 @@
     [Parse setApplicationId:@"YKPgMUTWs6j6YfI3PzniRqv3u9q6MJeaIiYmAAlR" clientKey:@"k5jusOyMOKwCOynpY6PwLWyVxZyhWguYjQkQeL3j"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    
     [[FMLocationHelper sharedInstance] startTrackingLocation];
     
     FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
     self.window.rootViewController = vc;
     
-//    [[FMYelpHelper sharedInstance] queryRestsWithLocation:@"Boston" andRadiusInMeters:1000 andTerm:@"dinner" andLimit:20 andPriceDescription:@"cheap" completionHandler:^(NSArray *results, NSError *error) {
-//        NSLog(@"%@", results);
-//    }];
+    [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
     
     return YES;
 }

@@ -42,6 +42,24 @@ static NSString * const kSearchLimit       = @"3";
 
 #pragma mark - Data Processing
 
+-(void)chooseRankingWithRadius: (double) meters andMealTime: (NSString *)mealString andMealPriceDesc: (NSString *)priceDesc
+{
+    [[FMYelpHelper sharedInstance] queryRestsWithLocation:[FMLocationHelper sharedInstance].locality andRadiusInMeters:meters andTerm:mealString andLimit:5 andPriceDescription:priceDesc completionHandler:^(NSArray *results, NSError *error) {
+        
+        NSLog(@"%@", results);
+        
+        NSMutableArray* rankings = [NSMutableArray array];
+        int searchRanking = 1;
+        
+        for (NSDictionary* biz in results) {
+            
+            [rankings addObject: @([self makeRankingForRest:biz andRankInSearch:searchRanking])];
+            searchRanking++;
+        }
+        NSLog(@"%@", rankings);
+    }];
+}
+
 
 //rating*log(#ratings) + friend recommendations - friend dislikes -distance  + (yelp categories)
 -(double) makeRankingForRest: (NSDictionary* )biz andRankInSearch: (int) searchRanking

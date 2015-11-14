@@ -18,5 +18,6 @@ SINGLETON_INTR(FMLocationHelper);
 -(void) startTrackingLocation;
 
 @property (nonatomic) CLLocation* curLoc;
+@property (nonatomic) NSString* locality;
 
 @end
