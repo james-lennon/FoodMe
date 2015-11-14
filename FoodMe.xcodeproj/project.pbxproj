@@ -10,6 +10,7 @@
 		352970BA70829A8EAA439C87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9E4FA670FB0B25D8DB1C82 /* libPods.a */; };
 		435C16FE1BF73DF400FE3529 /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C16FA1BF73DF400FE3529 /* NSURLRequest+OAuth.m */; };
 		435C16FF1BF73DF400FE3529 /* FMYelpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C16FB1BF73DF400FE3529 /* FMYelpHelper.m */; };
+		435C17021BF73E8100FE3529 /* SingletonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435C17011BF73E8100FE3529 /* SingletonHelper.m */; };
 		435FF3471BF6E8F200ADE8AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3461BF6E8F200ADE8AE /* main.m */; };
 		435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF3491BF6E8F200ADE8AE /* AppDelegate.m */; };
 		435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435FF34C1BF6E8F200ADE8AE /* ViewController.m */; };
@@ -28,6 +29,8 @@
 		435C16FB1BF73DF400FE3529 /* FMYelpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMYelpHelper.m; sourceTree = "<group>"; };
 		435C16FC1BF73DF400FE3529 /* FMYelpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMYelpHelper.h; sourceTree = "<group>"; };
 		435C16FD1BF73DF400FE3529 /* NSURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+OAuth.h"; sourceTree = "<group>"; };
+		435C17001BF73E8100FE3529 /* SingletonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonHelper.h; sourceTree = "<group>"; };
+		435C17011BF73E8100FE3529 /* SingletonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonHelper.m; sourceTree = "<group>"; };
 		435FF3421BF6E8F200ADE8AE /* FoodMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		435FF3461BF6E8F200ADE8AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		435FF3481BF6E8F200ADE8AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 			children = (
 				435C16FC1BF73DF400FE3529 /* FMYelpHelper.h */,
 				435C16FB1BF73DF400FE3529 /* FMYelpHelper.m */,
+				435C17001BF73E8100FE3529 /* SingletonHelper.h */,
+				435C17011BF73E8100FE3529 /* SingletonHelper.m */,
 				435C16FD1BF73DF400FE3529 /* NSURLRequest+OAuth.h */,
 				435C16FA1BF73DF400FE3529 /* NSURLRequest+OAuth.m */,
 			);
@@ -285,6 +290,7 @@
 				435FF34D1BF6E8F200ADE8AE /* ViewController.m in Sources */,
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
 				9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */,
+				435C17021BF73E8100FE3529 /* SingletonHelper.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
 				9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */,
 				435C16FF1BF73DF400FE3529 /* FMYelpHelper.m in Sources */,

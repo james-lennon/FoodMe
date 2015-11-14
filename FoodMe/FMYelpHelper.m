@@ -12,6 +12,8 @@
 
 @implementation FMYelpHelper
 
+SINGLETON_IMPL(FMYelpHelper);
+
 /**
  Default paths and search terms used in this example
  */
@@ -23,7 +25,7 @@ static NSString * const kSearchLimit       = @"3";
 
 #pragma mark - Public
 
-+ (void) queryRestsWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit andPriceDescription: (NSString *)price
+- (void) queryRestsWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit andPriceDescription: (NSString *)price
               completionHandler:(void (^)(NSArray *results, NSError *error))completionHandler
 {
     NSLog(@"Querying the stuff");
@@ -59,7 +61,7 @@ static NSString * const kSearchLimit       = @"3";
     }] resume];
 }
 
-+ (NSMutableArray *) filterArray: (NSArray *)bizzes
+- (NSMutableArray *) filterArray: (NSArray *)bizzes
 {
     NSMutableArray* toRet = [NSMutableArray array];
     
@@ -75,7 +77,7 @@ static NSString * const kSearchLimit       = @"3";
     return toRet;
 }
 
-+ (void)queryTopBusinessInfoForTerm:(NSString *)term location:(NSString *)location completionHandler:(void (^)(NSDictionary *topBusinessJSON, NSError *error))completionHandler {
+- (void)queryTopBusinessInfoForTerm:(NSString *)term location:(NSString *)location completionHandler:(void (^)(NSDictionary *topBusinessJSON, NSError *error))completionHandler {
     
     NSLog(@"Querying the Search API with term \'%@\' and location \'%@'", term, location);
     
@@ -106,7 +108,7 @@ static NSString * const kSearchLimit       = @"3";
     }] resume];
 }
 
-+ (void)queryBusinessInfoForBusinessId:(NSString *)businessID completionHandler:(void (^)(NSDictionary *topBusinessJSON, NSError *error))completionHandler {
+- (void)queryBusinessInfoForBusinessId:(NSString *)businessID completionHandler:(void (^)(NSDictionary *topBusinessJSON, NSError *error))completionHandler {
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLRequest *businessInfoRequest = [self _businessInfoRequestForID:businessID];
@@ -127,7 +129,7 @@ static NSString * const kSearchLimit       = @"3";
 
 #pragma mark - API Request Builders
 
-+ (NSURLRequest *) createSearchWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit
+- (NSURLRequest *) createSearchWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit
 {
     NSDictionary* params = @{
                              @"location": location,
@@ -147,7 +149,7 @@ static NSString * const kSearchLimit       = @"3";
  
  @return The NSURLRequest needed to perform the search
  */
-+ (NSURLRequest *)_searchRequestWithTerm:(NSString *)term location:(NSString *)location {
+- (NSURLRequest *)_searchRequestWithTerm:(NSString *)term location:(NSString *)location {
     NSDictionary *params = @{
                              @"term": term,
                              @"location": location,
@@ -164,7 +166,7 @@ static NSString * const kSearchLimit       = @"3";
  
  @return The NSURLRequest needed to query the business info
  */
-+ (NSURLRequest *)_businessInfoRequestForID:(NSString *)businessID {
+- (NSURLRequest *)_businessInfoRequestForID:(NSString *)businessID {
     
     NSString *businessPath = [NSString stringWithFormat:@"%@%@", kBusinessPath, businessID];
     return [NSURLRequest requestWithHost:kAPIHost path:businessPath];
