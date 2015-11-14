@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "FMMainViewController.h"
+#import "FMSetupViewController.h"
 #import "FMQuestionViewController.h"
 
-@interface FMTopLevelViewController : UIViewController<FMQuestionDelegate>
+@interface FMTopLevelViewController : UIViewController<FMSetupDelegate>
 
 @property (nonatomic) FMMainViewController* mainVC;
 
--(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question;
+-(void) setupCompleted;
 
 @end

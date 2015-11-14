@@ -26,12 +26,14 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     FMSetupViewController* vc = [[FMSetupViewController alloc] init];
+    vc.setupDelegate = self;
     [self presentViewController:vc animated:NO completion:nil];
 }
 
 
--(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question {
+-(void)setupCompleted {
     
+    [[self presentedViewController] presentViewController:_mainVC animated:YES completion:nil];
 }
 
 @end
