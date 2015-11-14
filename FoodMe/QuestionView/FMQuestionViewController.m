@@ -43,7 +43,7 @@
     CGFloat padding = 50;
     CGFloat width = self.view.frame.size.width, height = self.view.frame.size.height;
 
-    _questionLabel = [[FMLabel alloc] initWithFrame:CGRectMake(padding, padding, width - 2 * padding, 200)];
+    _questionLabel = [[FMLabel alloc] initWithFrame:CGRectMake(padding / 3, padding / 3, width - 2.0 / 3.0 * padding, 200)];
     [_questionLabel setText:_question];
     [self.view addSubview:_questionLabel];
     

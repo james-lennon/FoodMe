@@ -20,6 +20,10 @@
         
         UIFont* font = [UIFont fontWithName:@"Varela" size:30];
         [self setFont:font];
+        
+        self.adjustsFontSizeToFitWidth = NO;
+        self.numberOfLines = 0;
+        self.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return self;
 }
