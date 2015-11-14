@@ -8,8 +8,10 @@
 
 #import "AppDelegate.h"
 #import "FMQuestionViewController.h"
+#import "FMYelpHelper.h"
 
 #import <Parse/Parse.h>
+
 
 @interface AppDelegate ()
 
@@ -33,6 +35,11 @@
     FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
 //    [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
     self.window.rootViewController = vc;
+    
+    [[FMYelpHelper sharedInstance] queryRestsWithLocation:@"Boston" andRadiusInMeters:1000 andTerm:@"dinner" andLimit:20 andPriceDescription:@"cheap" completionHandler:^(NSArray *results, NSError *error) {
+        NSLog(@"%@", results);
+    }];
+    
     
     return YES;
 }

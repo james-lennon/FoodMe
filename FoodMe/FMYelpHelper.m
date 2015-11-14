@@ -7,8 +7,15 @@
 //
 
 #import "FMYelpHelper.h"
-
 #import "NSURLRequest+OAuth.h"
+
+@interface FMYelpHelper ()
+
+@property (nonatomic) NSUserDefaults* dflts;
+
+@property (nonatomic) NSMutableDictionary* yelpData;
+
+@end
 
 @implementation FMYelpHelper
 
@@ -22,8 +29,71 @@ static NSString * const kSearchPath        = @"/v2/search/";
 static NSString * const kBusinessPath      = @"/v2/business/";
 static NSString * const kSearchLimit       = @"3";
 
+-(instancetype) init
+{
+    if(self = [super init]) {
+        
+        _dflts = [NSUserDefaults standardUserDefaults];
+    }
+    return self;
+}
 
-#pragma mark - Public
+
+#pragma mark - Data Storage/Loading:
+
+//rating*log(#ratings) + friend recommendations - friend dislikes -yelp ranking  -distance  + (yelp categories)
+- (void) loadYelpData
+{
+    NSDictionary* yelpData = [_dflts objectForKey:@"yelpData"];
+    
+    if(!yelpData) {
+        
+        NSMutableDictionary* newData = [NSMutableDictionary dictionary];
+        
+        newData[@"ratingCoeff"] = @(1);
+        newData[@"searchRankingCoeff"] = @(1);
+        newData[@"distanceCoeff"] = @(1);
+        newData[@"categoryCoeffs"] = @{}; //This will be updated every search to autofill categoreis instead of manual input of each category.;
+        
+        _yelpData = newData;
+        
+        [self saveYelpData];
+    }
+    else {
+        _yelpData = [NSMutableDictionary dictionaryWithDictionary:yelpData];
+    }
+}
+
+-(void) createCategoryIfNeeded: (NSString *)catName
+{
+    if (!_yelpData[@"categoryCoeffs"][catName]) {
+        
+        NSMutableDictionary* newDict = [NSMutableDictionary dictionaryWithDictionary:_yelpData[@"categoryCoeffs"]];
+        [newDict setObject:@(1) forKey:catName];
+        _yelpData[@"categoryCoeffs"] = newDict;
+    }
+}
+
+- (void) updateCategoryInfoWithArray: (NSArray *)bizzes
+{
+    for (NSDictionary* biz in bizzes) {
+        
+        for (NSArray* category in biz[@"categories"]) {
+            //Category is an array of size 2, with a category name and an alias that is searchable in filters
+            //We save the alias name in case we want to search with this later.
+            
+            [self createCategoryIfNeeded:category[1]];
+        }
+    }
+}
+
+- (void) saveYelpData
+{
+    [_dflts setObject:_yelpData forKey:@"yelpData"];
+}
+
+
+#pragma mark - Querying Work:
 
 - (void) queryRestsWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit andPriceDescription: (NSString *)price
               completionHandler:(void (^)(NSArray *results, NSError *error))completionHandler
@@ -48,6 +118,8 @@ static NSString * const kSearchLimit       = @"3";
                 
                 NSArray* filteredBiz = [self filterArray:businessArray];
                 NSLog(@"Filtered Array %@", filteredBiz);
+                
+                [self updateCategoryInfoWithArray: filteredBiz];
                 
                 completionHandler(filteredBiz, error);
             }
@@ -76,58 +148,6 @@ static NSString * const kSearchLimit       = @"3";
     
     return toRet;
 }
-
-- (void)queryTopBusinessInfoForTerm:(NSString *)term location:(NSString *)location completionHandler:(void (^)(NSDictionary *topBusinessJSON, NSError *error))completionHandler {
-    
-    NSLog(@"Querying the Search API with term \'%@\' and location \'%@'", term, location);
-    
-    //Make a first request to get the search results with the passed term and location
-    NSURLRequest *searchRequest = [self _searchRequestWithTerm:term location:location];
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithRequest:searchRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        
-        if (!error && httpResponse.statusCode == 200) {
-            
-            NSDictionary *searchResponseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSArray *businessArray = searchResponseJSON[@"businesses"];
-            
-            if ([businessArray count] > 0) {
-                NSDictionary *firstBusiness = [businessArray firstObject];
-                NSString *firstBusinessID = firstBusiness[@"id"];
-                NSLog(@"%lu businesses found, querying business info for the top result: %@", (unsigned long)[businessArray count], firstBusinessID);
-                
-                [self queryBusinessInfoForBusinessId:firstBusinessID completionHandler:completionHandler];
-            } else {
-                completionHandler(nil, error); // No business was found
-            }
-        } else {
-            completionHandler(nil, error); // An error happened or the HTTP response is not a 200 OK
-        }
-    }] resume];
-}
-
-- (void)queryBusinessInfoForBusinessId:(NSString *)businessID completionHandler:(void (^)(NSDictionary *topBusinessJSON, NSError *error))completionHandler {
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLRequest *businessInfoRequest = [self _businessInfoRequestForID:businessID];
-    [[session dataTaskWithRequest:businessInfoRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        if (!error && httpResponse.statusCode == 200) {
-            NSDictionary *businessResponseJSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            
-            completionHandler(businessResponseJSON, error);
-        } else {
-            completionHandler(nil, error);
-        }
-    }] resume];
-    
-}
-
-
-#pragma mark - API Request Builders
 
 - (NSURLRequest *) createSearchWithLocation: (NSString *)location andRadiusInMeters: (double) meters andTerm: (NSString *)term andLimit: (int) limit
 {
@@ -158,19 +178,5 @@ static NSString * const kSearchLimit       = @"3";
     
     return [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];
 }
-
-/**
- Builds a request to hit the business endpoint with the given business ID.
- 
- @param businessID The id of the business for which we request informations
- 
- @return The NSURLRequest needed to query the business info
- */
-- (NSURLRequest *)_businessInfoRequestForID:(NSString *)businessID {
-    
-    NSString *businessPath = [NSString stringWithFormat:@"%@%@", kBusinessPath, businessID];
-    return [NSURLRequest requestWithHost:kAPIHost path:businessPath];
-}
-
 
 @end
