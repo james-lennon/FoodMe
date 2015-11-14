@@ -33,11 +33,8 @@
     
     [[FMLocationHelper sharedInstance] startTrackingLocation];
     
-//    FMTopLevelViewController* vc = [[FMTopLevelViewController alloc] init];
-    FMLoadingViewController* vc = [[FMLoadingViewController alloc] init];
+    FMTopLevelViewController* vc = [[FMTopLevelViewController alloc] init];
     self.window.rootViewController = vc;
-    
-//    [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
     
     return YES;
 }
