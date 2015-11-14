@@ -11,8 +11,15 @@
 
 #define MAX_QUESTIONS 3
 
+@protocol FMQuestionDelegate <NSObject>
+
+-(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question;
+
+@end
+
 @interface FMQuestionViewController : UIViewController
 
+@property NSObject<FMQuestionDelegate>* questionDelegate;
 @property NSString* question;
 @property NSArray* answers;
 @property FMLabel* questionLabel;

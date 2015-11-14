@@ -51,13 +51,44 @@
     CGFloat btnHeight = 50;
     for (int i = 0; i < _answers.count; i++) {
         FMButton* btn = [[FMButton alloc] initWithFrame:CGRectMake(padding, 200 + i * (btnHeight + 10), btnWidth, btnHeight) completion:^{
-            NSLog(@"selected: %@\n", _answers[i]);
+            [self transitionWithSelection:i];
+            
         }];
         [btn setTitle:_answers[i] forState:UIControlStateNormal];
         
         [self.view addSubview:btn];
         [self.answerButtons addObject:btn];
     }
+}
+
+-(void) transitionWithSelection:(int)index {
+    
+    [UIView animateWithDuration:.5f animations:^{
+        
+        for (int i = 0; i < _answerButtons.count; i++) {
+            if (i != index) {
+                [_answerButtons[i] setAlpha:0.0f];
+            }
+        }
+        
+    } completion:nil];
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:.5f animations:^{
+            
+            [_answerButtons[index] setAlpha:0.0f];
+            [_questionLabel setAlpha:0.0f];
+            
+        } completion:^(BOOL finished) {
+            
+            [_questionDelegate answerChosen:_answers[index] WithQuestion:_question];
+            
+            FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
+            [self presentViewController:vc animated:YES completion:nil];
+            
+        }];
+    });
 }
 
 - (void)didReceiveMemoryWarning {

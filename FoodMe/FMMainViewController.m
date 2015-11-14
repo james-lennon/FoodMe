@@ -8,6 +8,7 @@
 
 #import "FMMainViewController.h"
 #import "FMColors.h"
+#import "FMQuestionViewController.h"
 
 @implementation FMMainViewController
 
@@ -30,15 +31,24 @@
     CGFloat sidePadding = 30, btnHeight = 100;
     
     _startButton = [[FMButton alloc] initWithFrame:CGRectMake(sidePadding, size.height / 2 - btnHeight / 2, size.width - 2 * sidePadding, btnHeight) completion:^{
-        
+        [self transition];
     }];
     [_startButton setTitle:@"food me" forState:UIControlStateNormal];
     [self.view addSubview:_startButton];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
+-(void) transition {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:.5f animations:^{
+            
+            [_startButton setAlpha:0.0f];
+            
+        } completion:^(BOOL finished) {
+            FMQuestionViewController* vc = [[FMQuestionViewController alloc] initWithQuestion:@"How are you?" answers:@[@"Good", @"Bad", @"yo", @"what"]];
+            [self presentViewController:vc animated:YES completion:nil];
+
+        }];
+    });
 }
 
 @end
