@@ -1,5 +1,5 @@
 //
-//  FMTopLevelViewController.h
+//  FMSetupViewController.h
 //  FoodMe
 //
 //  Created by James Lennon on 11/14/15.
@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FMMainViewController.h"
-#import "FMQuestionViewController.h"
 
-@interface FMTopLevelViewController : UIViewController<FMQuestionDelegate>
+@interface FMSetupViewController : UIViewController<FMQuestionDelegate>
 
-@property (nonatomic) FMMainViewController* mainVC;
+@property (nonatomic) NSInteger questionIndex;
+@property (nonatomic) NSArray* prompts;
+@property (nonatomic) NSArray* options;
 
 -(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question;
 

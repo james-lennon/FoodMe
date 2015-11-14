@@ -28,4 +28,9 @@
     [self presentViewController:_mainVC animated:NO completion:nil];
 }
 
+
+-(void) answerChosen:(NSString*)answer WithQuestion:(NSString*)question {
+    
+}
+
 @end
