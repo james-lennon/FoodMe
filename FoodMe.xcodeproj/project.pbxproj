@@ -27,6 +27,9 @@
 		9D8A01711BF7958400A84ABD /* Varela-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A01701BF7956A00A84ABD /* Varela-Regular.ttf */; };
 		9D8A01741BF7A57300A84ABD /* FMTopLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01731BF7A57300A84ABD /* FMTopLevelViewController.m */; };
 		9D8A01771BF7A77E00A84ABD /* FMSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01761BF7A77E00A84ABD /* FMSetupViewController.m */; };
+		9D8A017A1BF7F5CC00A84ABD /* FMLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01791BF7F5CC00A84ABD /* FMLoadingView.m */; };
+		9D8A017C1BF7F69000A84ABD /* pot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A017B1BF7F69000A84ABD /* pot.png */; };
+		9D8A017E1BF7F69600A84ABD /* steam.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A017D1BF7F69600A84ABD /* steam.png */; };
 		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
 		9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */; };
 /* End PBXBuildFile section */
@@ -67,6 +70,10 @@
 		9D8A01731BF7A57300A84ABD /* FMTopLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMTopLevelViewController.m; sourceTree = "<group>"; };
 		9D8A01751BF7A77E00A84ABD /* FMSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMSetupViewController.h; sourceTree = "<group>"; };
 		9D8A01761BF7A77E00A84ABD /* FMSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMSetupViewController.m; sourceTree = "<group>"; };
+		9D8A01781BF7F5CC00A84ABD /* FMLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMLoadingView.h; path = "UI Elements/FMLoadingView.h"; sourceTree = "<group>"; };
+		9D8A01791BF7F5CC00A84ABD /* FMLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMLoadingView.m; path = "UI Elements/FMLoadingView.m"; sourceTree = "<group>"; };
+		9D8A017B1BF7F69000A84ABD /* pot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pot.png; sourceTree = "<group>"; };
+		9D8A017D1BF7F69600A84ABD /* steam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = steam.png; sourceTree = "<group>"; };
 		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
 		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
 		9DFBDC571BF6EF5800A37168 /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArray_Shuffling.h; path = QuestionView/NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
@@ -154,6 +161,8 @@
 				9D8A01641BF6FF8100A84ABD /* FMButton.m */,
 				9D8A01671BF7064800A84ABD /* FMLabel.h */,
 				9D8A01681BF7064800A84ABD /* FMLabel.m */,
+				9D8A01781BF7F5CC00A84ABD /* FMLoadingView.h */,
+				9D8A01791BF7F5CC00A84ABD /* FMLoadingView.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -161,6 +170,8 @@
 		9D8A016A1BF70FAA00A84ABD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9D8A017D1BF7F69600A84ABD /* steam.png */,
+				9D8A017B1BF7F69000A84ABD /* pot.png */,
 				4380E4D41BF7997C00BD76D8 /* loadmessages.txt */,
 				4380E4D21BF798F800BD76D8 /* questions.txt */,
 				9D8A01701BF7956A00A84ABD /* Varela-Regular.ttf */,
@@ -284,9 +295,11 @@
 			files = (
 				4380E4D51BF7997C00BD76D8 /* loadmessages.txt in Resources */,
 				9D8A01711BF7958400A84ABD /* Varela-Regular.ttf in Resources */,
+				9D8A017C1BF7F69000A84ABD /* pot.png in Resources */,
 				435FF3551BF6E8F200ADE8AE /* LaunchScreen.storyboard in Resources */,
 				435FF3521BF6E8F200ADE8AE /* Assets.xcassets in Resources */,
 				4380E4D31BF798F800BD76D8 /* questions.txt in Resources */,
+				9D8A017E1BF7F69600A84ABD /* steam.png in Resources */,
 				435FF3501BF6E8F200ADE8AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +365,7 @@
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
 				9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */,
 				435C17021BF73E8100FE3529 /* SingletonHelper.m in Sources */,
+				9D8A017A1BF7F5CC00A84ABD /* FMLoadingView.m in Sources */,
 				435FF3471BF6E8F200ADE8AE /* main.m in Sources */,
 				9D8A01651BF6FF8100A84ABD /* FMButton.m in Sources */,
 				9D8A01741BF7A57300A84ABD /* FMTopLevelViewController.m in Sources */,
