@@ -71,7 +71,7 @@
         [[FMYelpHelper sharedInstance] setSearchRadiusBasedOnTime:answer];
     }
     else if (_questionIndex == 2) {
-        [[FMYelpHelper sharedInstance] setSearchRadiusBasedOnTime:answer];
+        [[FMYelpHelper sharedInstance] setMeal:answer];
     }
     _questionIndex++;
     if (_questionIndex >= _prompts.count) {
