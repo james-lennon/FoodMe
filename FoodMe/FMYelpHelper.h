@@ -15,7 +15,10 @@ SINGLETON_INTR(FMYelpHelper);
 
 -(void)findRankingsWithCompletionHandler:(void (^)(NSArray *results, NSError *error))completionHandler;
 -(void) saveYelpData;
+
 -(void) setSearchRadiusBasedOnTime: (NSString *)timeRange;
 -(void) setPriceDescBasedOnResponse: (NSString *) response;
+-(void) setMeal: (NSString *) mealDesc;
+
 
 @end

@@ -31,12 +31,14 @@
                      @"We'll need to ask you a few questions to get set up.",
                      @"What's your price range?",
                      @"How far away do you want to eat?",
+                     @"What meal do you want?",
                      questPart
                      ];
         _options = @[
                      @[@"Ok"],
                      @[@"$5-$10", @"$10-$20", @"$20-$40"],
                      @[@"5 - 10 min", @"10 - 20 min", @"20 - 40 min"],
+                     @[@"Breakfast", @"Lunch", @"Dinner", @"Dessert"],
                      answers
                      ];
     }
@@ -68,7 +70,9 @@
     else if (_questionIndex == 2) {
         [[FMYelpHelper sharedInstance] setSearchRadiusBasedOnTime:answer];
     }
-    
+    else if (_questionIndex == 2) {
+        [[FMYelpHelper sharedInstance] setSearchRadiusBasedOnTime:answer];
+    }
     _questionIndex++;
     if (_questionIndex >= _prompts.count) {
         [self.presentingViewController dismissViewControllerAnimated:NO completion:^{

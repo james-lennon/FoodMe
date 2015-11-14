@@ -17,6 +17,7 @@
 
 @property (nonatomic) NSString* priceDesc;
 @property (nonatomic) double radiusInMeters;
+@property (nonatomic) NSString* mealDesc;
 
 //_prompts = @[
 //@"We'll need to ask you a few questions to get set up.",
@@ -55,6 +56,11 @@ static NSString * const kSearchLimit       = @"3";
 }
 
 #pragma mark - Data Processing
+
+-(void) setMeal:(NSString *)mealDesc
+{
+    _mealDesc = mealDesc;
+}
 
 -(void) setSearchRadiusBasedOnTime:(NSString *)timeRange
 {
@@ -137,8 +143,7 @@ static NSString * const kSearchLimit       = @"3";
 
 -(void)findRankingsWithCompletionHandler:(void (^)(NSArray *results, NSError *error))completionHandler
 {
-#warning need place to input meal
-    [self chooseRankingWithRadius:_radiusInMeters andMealTime:@"dinner" andMealPriceDesc:_priceDesc
+    [self chooseRankingWithRadius:_radiusInMeters andMealTime:_mealDesc andMealPriceDesc:_priceDesc
              andCompletionHandler: ^(NSArray *results, NSError *error) {
                  
         completionHandler(results, error);
