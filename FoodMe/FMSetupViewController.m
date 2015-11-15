@@ -73,6 +73,10 @@
     else if (_questionIndex == 3) {
         [[FMYelpHelper sharedInstance] setMeal:answer];
     }
+    else if (_questionIndex == 4) {
+        [[FMYelpHelper sharedInstance] setIndexToPick: [_options[4] indexOfObject:answer]];
+    }
+    
     _questionIndex++;
     if (_questionIndex >= _prompts.count) {
         [self.presentingViewController dismissViewControllerAnimated:NO completion:^{

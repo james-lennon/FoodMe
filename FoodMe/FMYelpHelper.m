@@ -19,6 +19,8 @@
 @property (nonatomic) double radiusInMeters;
 @property (nonatomic) NSString* mealDesc;
 
+@property (nonatomic) int indexToPick;
+
 //_prompts = @[
 //@"We'll need to ask you a few questions to get set up.",
 //@"What's your price range?",
@@ -56,6 +58,11 @@ static NSString * const kSearchLimit       = @"3";
 }
 
 #pragma mark - Data Processing
+
+-(void)setIndexToPick:(int)ind
+{
+    _indexToPick = ind;
+}
 
 -(void) setMeal:(NSString *)mealDesc
 {
@@ -144,26 +151,36 @@ static NSString * const kSearchLimit       = @"3";
 -(void)findTopBiz:(void (^)(NSDictionary *biz, NSError *error))completionHandler
 {
     [self chooseRankingWithRadius:_radiusInMeters andMealTime:_mealDesc andMealPriceDesc:_priceDesc
-             andCompletionHandler: ^(NSArray *bizzes, NSArray* rankings, NSError *error) {
-                 
-                 NSMutableArray* toTupleArray = [NSMutableArray array];
-                 
-                 int i = 0;
-                 for (NSDictionary* biz in bizzes) {
-                     [toTupleArray addObject: @[biz, rankings[i]]];
-                     i++;
-                 }
-                 
-                 NSArray* sortedArray;
-                 sortedArray = [toTupleArray sortedArrayUsingComparator:^NSComparisonResult(NSArray* a, NSArray* b) {
-                     double rank1 = [a[1] doubleValue];
-                     double rank2 = [b[1] doubleValue];
-                     
-                     return rank1 > rank2;
-                 }];
-                 
-                 completionHandler(sortedArray[0][0], error);
-             }];
+     andCompletionHandler: ^(NSArray *bizzes, NSArray* rankings, NSError *error) {
+         
+         if(bizzes.count == 0) {
+             completionHandler(nil, [NSError errorWithDomain:@"No biz. found" code:1023 userInfo:nil]);
+             return;
+         }
+         
+         NSMutableArray* toTupleArray = [NSMutableArray array];
+         
+         int i = 0;
+         for (NSDictionary* biz in bizzes) {
+             [toTupleArray addObject: @[biz, rankings[i]]];
+             i++;
+         }
+         
+         NSArray* sortedArray;
+         sortedArray = [toTupleArray sortedArrayUsingComparator:^NSComparisonResult(NSArray* a, NSArray* b) {
+             double rank1 = [a[1] doubleValue];
+             double rank2 = [b[1] doubleValue];
+             
+             return rank1 > rank2;
+         }];
+         
+         if(_indexToPick < sortedArray.count) {
+             completionHandler(sortedArray[_indexToPick][0], error);
+         }
+         else {
+             completionHandler(sortedArray[0][0], error);
+         }
+     }];
 }
 
 -(void)chooseRankingWithRadius: (double) meters andMealTime: (NSString *)mealString andMealPriceDesc: (NSString *)priceDesc
@@ -334,7 +351,8 @@ static NSString * const kSearchLimit       = @"3";
                              @"limit": [NSString stringWithFormat:@"%i",limit],
                              @"term": term,
                              @"radius_filter": [NSString stringWithFormat:@"%f", meters],
-                             @"cll": [NSString stringWithFormat:@"%f,%f", latitude,longitude]
+                             @"cll": [NSString stringWithFormat:@"%f,%f", latitude,longitude],
+                             @"category_filter":@"food",
                              };
     
     return [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];
