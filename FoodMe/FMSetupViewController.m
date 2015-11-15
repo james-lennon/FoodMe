@@ -28,7 +28,7 @@
         
         _questionIndex = 0;
         _prompts = @[
-                     @"We'll need to ask you a few questions to get set up.",
+                     @"Welcome to foodme! \n the easiest way \n to find a place to eat.",
                      @"What's your price range?",
                      @"How far away do you want to eat?",
                      @"What meal do you want?",

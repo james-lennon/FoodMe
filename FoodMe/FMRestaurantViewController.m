@@ -81,7 +81,6 @@
     FMButton* dislikeBtn = [[FMButton alloc] initWithFrame:CGRectMake(20, _restaurantView.frame.origin.y + _restaurantView.frame.size.height + 10 + 220, size.width - 40, 100) completion:^{
         
         [[FMYelpHelper sharedInstance] mutateCoeffsAfterEatingWithCategoriesToMutate:categories andDidLike:NO];
-        
     }];
     [dislikeBtn setTitle:@"Dislike" forState:UIControlStateNormal];
     
