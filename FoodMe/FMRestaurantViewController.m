@@ -14,8 +14,8 @@
 -(id)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     if (self) {
-//        _data = dict;
-        _data = @{@"name": @"Test", @"url": @"google.com", @"image_url": @"http://previews.123rf.com/images/youichi4411/youichi44111104/youichi4411110400057/9364461-Food-square-icons-set-Illustration-vector--Stock-Vector-kitchen-fork-cook.jpg"};
+        _data = dict;
+//        _data = @{@"name": @"Test", @"url": @"google.com", @"image_url": @"http://previews.123rf.com/images/youichi4411/youichi44111104/youichi4411110400057/9364461-Food-square-icons-set-Illustration-vector--Stock-Vector-kitchen-fork-cook.jpg"};
     }
     return self;
 }
