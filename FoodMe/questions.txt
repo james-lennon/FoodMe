@@ -37,7 +37,7 @@ Blackberry
 Blueberry
 Watermelon
 Raspberry
-#Pick a sequence of numbers: 1, 2, 3 or 3, 2, 1?
+#Pick: 1, 2, 3 or 3, 2, 1?
 1, 2, 3
 3, 2, 1
 #Are you wearing jewelry?

@@ -11,7 +11,7 @@
 #import "FMYelpHelper.h"
 #import "FMLocationHelper.h"
 
-#import "FMLoadingViewController.h"
+#import "FMRestaurantViewController.h"
 
 #import <Parse/Parse.h>
 
@@ -34,6 +34,7 @@
     [[FMLocationHelper sharedInstance] startTrackingLocation];
     
     FMTopLevelViewController* vc = [[FMTopLevelViewController alloc] init];
+//    FMRestaurantViewController* vc = [[FMRestaurantViewController alloc] initWithDictionary:@{}];
     self.window.rootViewController = vc;
     
     return YES;

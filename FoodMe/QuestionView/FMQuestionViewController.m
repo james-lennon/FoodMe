@@ -40,7 +40,7 @@
     
     self.view.backgroundColor = BACKGROUND_COLOR;
     
-    CGFloat padding = 50;
+    CGFloat padding = 30;
     CGFloat width = self.view.frame.size.width, height = self.view.frame.size.height;
 
     _questionLabel = [[FMLabel alloc] initWithFrame:CGRectMake(padding / 3, padding / 3, width - 2.0 / 3.0 * padding, 200)];
@@ -48,11 +48,10 @@
     [self.view addSubview:_questionLabel];
     
     CGFloat btnWidth = width - 2 * padding;
-    CGFloat btnHeight = 50;
+    CGFloat btnHeight = 80;
     for (int i = 0; i < _answers.count; i++) {
         FMButton* btn = [[FMButton alloc] initWithFrame:CGRectMake(padding, 200 + i * (btnHeight + 10), btnWidth, btnHeight) completion:^{
             [self transitionWithSelection:i];
-            
         }];
         [btn setTitle:_answers[i] forState:UIControlStateNormal];
         

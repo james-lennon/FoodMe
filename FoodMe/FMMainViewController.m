@@ -51,9 +51,8 @@
 
 -(void)chooseRestaurant {
     FMLoadingViewController* lvc = [[FMLoadingViewController alloc] init];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self presentViewController:lvc animated:YES completion:^{
-            
+    [self presentViewController:lvc animated:YES completion:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [[FMYelpHelper sharedInstance] findTopBiz:^(NSDictionary *biz, NSError *error) {
                 
                 if(error) {
@@ -77,8 +76,8 @@
                 }];
                 
             }];
-        }];
-    });
+        });
+    }];
 }
 
 -(void)answerChosen:(NSString *)answer WithQuestion:(NSString *)question {

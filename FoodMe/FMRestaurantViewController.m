@@ -14,7 +14,8 @@
 -(id)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     if (self) {
-        _data = dict;
+//        _data = dict;
+        _data = @{@"name": @"Test", @"url": @"google.com", @"image_url": @"http://previews.123rf.com/images/youichi4411/youichi44111104/youichi4411110400057/9364461-Food-square-icons-set-Illustration-vector--Stock-Vector-kitchen-fork-cook.jpg"};
     }
     return self;
 }
@@ -23,7 +24,7 @@
     self.view.backgroundColor = BACKGROUND_COLOR;
     
     CGSize size = self.view.frame.size;
-    _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(20, 200, size.width - 40, 300) Dictionary:_data];
+    _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(20, 200, size.width - 40, size.height / 2 - 100) Dictionary:_data];
     [self.view addSubview:_restaurantView];
 }
 
