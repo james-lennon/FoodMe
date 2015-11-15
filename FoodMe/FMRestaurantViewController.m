@@ -8,6 +8,7 @@
 
 #import "FMRestaurantViewController.h"
 #import "FMColors.h"
+#import "FMButton.h"
 
 @implementation FMRestaurantViewController
 
@@ -15,7 +16,6 @@
     self = [super init];
     if (self) {
         _data = dict;
-//        _data = @{@"name": @"Test", @"url": @"google.com", @"image_url": @"http://previews.123rf.com/images/youichi4411/youichi44111104/youichi4411110400057/9364461-Food-square-icons-set-Illustration-vector--Stock-Vector-kitchen-fork-cook.jpg"};
     }
     return self;
 }
@@ -24,8 +24,15 @@
     self.view.backgroundColor = BACKGROUND_COLOR;
     
     CGSize size = self.view.frame.size;
-    _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(20, 200, size.width - 40, size.height / 2 - 100) Dictionary:_data];
+    _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(20, 50, size.width - 40, size.height / 2 - 100) Dictionary:_data];
+    
+    FMButton* btn = [[FMButton alloc] initWithFrame:CGRectMake(20, _restaurantView.frame.origin.y + _restaurantView.frame.size.height + 10, size.width - 40, 100) completion:^{
+        // TODO open maps
+    }];
+    [btn setTitle:@"Go!" forState:UIControlStateNormal];
+    
     [self.view addSubview:_restaurantView];
+    [self.view addSubview:btn];
 }
 
 @end
