@@ -146,6 +146,11 @@ static NSString * const kSearchLimit       = @"3";
     [self chooseRankingWithRadius:_radiusInMeters andMealTime:_mealDesc andMealPriceDesc:_priceDesc
              andCompletionHandler: ^(NSArray *bizzes, NSArray* rankings, NSError *error) {
                  
+                 if(bizzes.count == 0) {
+                     completionHandler(nil, [NSError errorWithDomain:@"No biz. found" code:1023 userInfo:nil]);
+                     return;
+                 }
+                 
                  NSMutableArray* toTupleArray = [NSMutableArray array];
                  
                  int i = 0;
@@ -334,7 +339,8 @@ static NSString * const kSearchLimit       = @"3";
                              @"limit": [NSString stringWithFormat:@"%i",limit],
                              @"term": term,
                              @"radius_filter": [NSString stringWithFormat:@"%f", meters],
-                             @"cll": [NSString stringWithFormat:@"%f,%f", latitude,longitude]
+                             @"cll": [NSString stringWithFormat:@"%f,%f", latitude,longitude],
+                             @"category_filter":@"food",
                              };
     
     return [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];
