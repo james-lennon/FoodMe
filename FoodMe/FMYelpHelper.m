@@ -90,7 +90,7 @@ static NSString * const kSearchLimit       = @"3";
     if ([response isEqualToString:@"$5-$10"]) {
         _priceDesc = @"Inexpensive";
     }
-    else if ([response isEqualToString:@"$10-$20"]) {
+    else if ([response isEqualToString:@"$11-$30"]) {
         _priceDesc = @"Moderate";
     }
     else {
