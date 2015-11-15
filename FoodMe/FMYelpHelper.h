@@ -23,5 +23,6 @@ SINGLETON_INTR(FMYelpHelper);
 
 
 -(void) mutateCoefficientsOnRespinWithCategories:(NSArray *)cats andDidLike:(BOOL)liked;
+-(void) mutateCoeffsAfterEatingWithCategoriesToMutate:(NSArray *)mutcats andDidLike: (BOOL) liked;
 
 @end

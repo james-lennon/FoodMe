@@ -98,33 +98,34 @@ static NSString * const kSearchLimit       = @"3";
     }
 }
 
--(NSMutableDictionary *) mutateCoefficientsForPostEating: (NSMutableDictionary *)coeffdict categoriesToMutate:(NSArray *)mutcats likedboolean:(BOOL)liked {
-    
+-(void) mutateCoeffsAfterEatingWithCategoriesToMutate:(NSArray *)mutcats andDidLike: (BOOL) liked
+{
     if(liked) {
         
         for (NSString* str in mutcats) {
-            coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] + arc4random_uniform(3));
+            _yelpData[str] = @([[_yelpData valueForKey:str] doubleValue] + arc4random_uniform(3));
         }
     }
     else {
         
         for (NSString* str in mutcats) {
             
-            if([coeffdict[str] doubleValue] > 100) {
+            if([_yelpData[str] doubleValue] > 100) {
                 
-                coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] * 0.95);
+                _yelpData[str] = @([[_yelpData valueForKey:str] doubleValue] * 0.95);
             }
             else {
                 
-                coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] * 0.9 - 5);
+                _yelpData[str] = @([[_yelpData valueForKey:str] doubleValue] * 0.9 - 5);
             }
         }
         
-        coeffdict[@"ratingCoeff"] = @([coeffdict[@"ratingCoeff"] doubleValue] + arc4random_uniform(10)-5);
-        coeffdict[@"searchRankingCoeff"]= @([coeffdict[@"searchRankingCoeff"] doubleValue] + arc4random_uniform(8)-4);
-        coeffdict[@"distanceCoeff"]= @([coeffdict[@"distanceCoeff"] doubleValue] + arc4random_uniform(6)-3);
+        _yelpData[@"ratingCoeff"] = @([_yelpData[@"ratingCoeff"] doubleValue] + arc4random_uniform(10)-5);
+        _yelpData[@"searchRankingCoeff"]= @([_yelpData[@"searchRankingCoeff"] doubleValue] + arc4random_uniform(8)-4);
+        _yelpData[@"distanceCoeff"]= @([_yelpData[@"distanceCoeff"] doubleValue] + arc4random_uniform(6)-3);
     }
-    return coeffdict;
+    
+    [self saveYelpData];
 }
 
 -(void) mutateCoefficientsOnRespinWithCategories:(NSArray *)cats andDidLike:(BOOL)liked
