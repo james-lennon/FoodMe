@@ -48,6 +48,11 @@
             
             [[FMYelpHelper sharedInstance] findTopBiz:^(NSDictionary *biz, NSError *error) {
                 
+                if(error) {
+                    NSLog(@"ERROR!!! %@", error);
+                    return;
+                }
+                
                 NSLog(@"Top business: %@", biz);
                 
                 NSString* categoryName = biz[@"categories"][0][0];
