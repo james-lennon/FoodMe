@@ -22,7 +22,7 @@
 }
 
 -(void)viewDidLoad {
-    self.view.backgroundColor = [UIColor blueColor];//BACKGROUND_COLOR;
+    self.view.backgroundColor = BACKGROUND_COLOR;
     
     _mainVC = [[FMMainViewController alloc] init];
 }
