@@ -38,7 +38,7 @@
             NSString* url = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%@,%@", loc.coordinate.latitude, loc.coordinate.longitude, coords[@"latitude"], coords[@"longitude"]];
             [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
             
-//            NSString* url = [NSString stringWithFormat:@"maps.apple.com/?ll=%@,%@", coords[@"latitude"], coords[@"longitude"]];
+            self.view.userInteractionEnabled = YES;
         }
     }];
     [btn setTitle:@"Go!" forState:UIControlStateNormal];
