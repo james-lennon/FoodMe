@@ -149,6 +149,12 @@ static NSString * const kSearchLimit       = @"3";
     [self chooseRankingWithRadius:_radiusInMeters andMealTime:_mealDesc andMealPriceDesc:_priceDesc
              andCompletionHandler: ^(NSArray *bizzes, NSArray* rankings, NSError *error) {
                  
+                 if(bizzes.count == 0) {
+                     completionHandler(nil, [NSError errorWithDomain:@"No open businesses :(" code:0 userInfo:@{}]);
+                     return;
+                 }
+                 
+                 
                  NSMutableArray* toTupleArray = [NSMutableArray array];
                  
                  int i = 0;
@@ -229,7 +235,7 @@ static NSString * const kSearchLimit       = @"3";
         
         newData[@"ratingCoeff"] = @(50);
         newData[@"searchRankingCoeff"] = @(30);
-        newData[@"distanceCoeff"] = @(25);
+        newData[@"distanceCoeff"] = @(0.05);
         newData[@"categoryCoeffs"] = @{}; //This will be updated every search to autofill categoreis instead of manual input of each category.;
         
         _yelpData = newData;
@@ -337,7 +343,8 @@ static NSString * const kSearchLimit       = @"3";
                              @"limit": [NSString stringWithFormat:@"%i",limit],
                              @"term": term,
                              @"radius_filter": [NSString stringWithFormat:@"%f", meters],
-                             @"cll": [NSString stringWithFormat:@"%f,%f", latitude,longitude]
+                             @"cll": [NSString stringWithFormat:@"%f,%f", latitude,longitude],
+                             @"category_filter": @"food"
                              };
     
     return [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];

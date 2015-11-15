@@ -51,7 +51,13 @@
 -(void)chooseRestaurant {
     FMLoadingViewController* lvc = [[FMLoadingViewController alloc] init];
     [self presentViewController:lvc animated:YES completion:^{
+        
         [[FMYelpHelper sharedInstance] findTopBiz:^(NSDictionary *biz, NSError *error) {
+            
+            if(error) {
+                NSLog(@"ERROR!!! %@", error);
+                return;
+            }
             
             NSLog(@"Top business: %@", biz);
             
