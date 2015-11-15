@@ -12,6 +12,7 @@
 #import "FMLocationHelper.h"
 #import "FMYelpHelper.h"
 #import "FMLabel.h"
+#import "FMTopLevelViewController.h"
 
 @interface FMRestaurantViewController ()
 
@@ -75,12 +76,20 @@
         
         [[FMYelpHelper sharedInstance] mutateCoeffsAfterEatingWithCategoriesToMutate:categories andDidLike:YES];
         
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+                [(FMTopLevelViewController *)self.presentingViewController.presentingViewController reset];
+            }];
+        }];
+    
     }];
     [likeBtn setTitle:@"Like" forState:UIControlStateNormal];
     
     FMButton* dislikeBtn = [[FMButton alloc] initWithFrame:CGRectMake(20, _restaurantView.frame.origin.y + _restaurantView.frame.size.height + 10 + 220, size.width - 40, 100) completion:^{
         
         [[FMYelpHelper sharedInstance] mutateCoeffsAfterEatingWithCategoriesToMutate:categories andDidLike:NO];
+        
+#warning NEED TO START OVER HERE
     }];
     [dislikeBtn setTitle:@"Dislike" forState:UIControlStateNormal];
     

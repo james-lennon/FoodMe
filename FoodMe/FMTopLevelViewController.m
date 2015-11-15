@@ -22,7 +22,7 @@
 }
 
 -(void)viewDidLoad {
-    self.view.backgroundColor = BACKGROUND_COLOR;
+    self.view.backgroundColor = [UIColor blueColor];//BACKGROUND_COLOR;
     
     _mainVC = [[FMMainViewController alloc] init];
 }
@@ -34,6 +34,15 @@
         vc.setupDelegate = self;
         [self presentViewController:vc animated:NO completion:nil];
     }
+}
+
+-(void) reset
+{
+    [self dismissViewControllerAnimated:NO completion:^{
+        FMSetupViewController* vc = [[FMSetupViewController alloc] init];
+        vc.setupDelegate = self;
+        [self presentViewController:vc animated:NO completion:nil];
+    }];
 }
 
 -(void)setupCompleted {

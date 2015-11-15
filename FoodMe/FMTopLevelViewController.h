@@ -17,5 +17,6 @@
 @property (nonatomic) FMMainViewController* mainVC;
 
 -(void) setupCompleted;
+-(void) reset;
 
 @end

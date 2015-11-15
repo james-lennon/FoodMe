@@ -11,6 +11,7 @@
 #import "FMLoadingViewController.h"
 #import "FMYelpHelper.h"
 #import "FMRestaurantViewController.h"
+#import "FMTopLevelViewController.h"
 
 @implementation FMMainViewController
 
@@ -95,6 +96,8 @@
         
         // Show restaurant / directions
         FMRestaurantViewController* vc = [[FMRestaurantViewController alloc] initWithDictionary:_yelpData];
+        NSLog(@"%@",self.presentedViewController);
+        
         [self dismissViewControllerAnimated:YES completion:^{
             [self presentViewController:vc animated:NO completion:nil];
         }];
@@ -105,7 +108,24 @@
 
         
         [self dismissViewControllerAnimated:YES completion:^{
-            [self chooseRestaurant];
+//            [self chooseRestaurant];
+//            [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+//                [(FMTopLevelViewController *)self.presentingViewController reset];
+//                [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:^{
+            
+            NSLog(@"%@", self.presentingViewController.presentingViewController.presentingViewController.description);
+            NSLog(@"%@", self.presentingViewController.presentingViewController.description);
+            NSLog(@"%@", self.presentingViewController.description);
+            
+            [(FMTopLevelViewController *)self.presentingViewController reset];//dismissViewControllerAnimated:YES completion:^{
+//                [(FMTopLevelViewController *)self.presentingViewController reset];
+//                FMTopLevelViewController* topLvl = (FMTopLevelViewController *)self.presentingViewController;
+//                FMSetupViewController* vc = [[FMSetupViewController alloc] init];
+//                vc.setupDelegate = topLvl;
+//                [topLvl presentViewController:vc animated:NO completion:nil];
+//                
+//                NSLog(@"Restarting stuff");
+//            }];
         }];
     }
 }
