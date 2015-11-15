@@ -81,7 +81,18 @@
 }
 
 -(void)answerChosen:(NSString *)answer WithQuestion:(NSString *)question {
+    
+    NSMutableArray* categories = [NSMutableArray array];
+    
+    for (NSArray* cat in _yelpData[@"categories"]) {
+        [categories addObject:cat[1]];
+    }
+    
     if ([answer  isEqual: @"Great, let's go!"]) {
+        
+        [[FMYelpHelper sharedInstance] mutateCoefficientsOnRespinWithCategories:categories andDidLike:YES];
+        
+        
         // Show restaurant / directions
         FMRestaurantViewController* vc = [[FMRestaurantViewController alloc] initWithDictionary:_yelpData];
         [self dismissViewControllerAnimated:YES completion:^{
@@ -89,10 +100,13 @@
         }];
     }
     else {
+        
+        [[FMYelpHelper sharedInstance] mutateCoefficientsOnRespinWithCategories:categories andDidLike:NO];
+
+        
         [self dismissViewControllerAnimated:YES completion:^{
             [self chooseRestaurant];
         }];
     }
 }
-
 @end

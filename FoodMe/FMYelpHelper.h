@@ -22,4 +22,6 @@ SINGLETON_INTR(FMYelpHelper);
 -(void) setIndexToPick: (int) ind;
 
 
+-(void) mutateCoefficientsOnRespinWithCategories:(NSArray *)cats andDidLike:(BOOL)liked;
+
 @end

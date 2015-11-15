@@ -127,25 +127,25 @@ static NSString * const kSearchLimit       = @"3";
     return coeffdict;
 }
 
--(NSMutableDictionary *) mutateCoefficientsForRespin: (NSMutableDictionary *)coeffdict categoriesToMutate:(NSArray *)mutcats likedboolean:(BOOL)liked
+-(void) mutateCoefficientsOnRespinWithCategories:(NSArray *)cats andDidLike:(BOOL)liked
 {
-    for (NSString* str in mutcats) {
+    for (NSString* str in cats) {
         
         if(liked) {
             
-            coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] + 5);
+            _yelpData[str] = @([[_yelpData valueForKey:str] doubleValue] + 5);
         }
         else {
-            if([coeffdict[str] doubleValue] > 100) {
-                coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] * 0.9);
+            if([_yelpData[str] doubleValue] > 100) {
+                _yelpData[str] = @([[_yelpData valueForKey:str] doubleValue] * 0.9);
             }
             else {
-                coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] * 0.7 - 5);
+                _yelpData[str] = @([[_yelpData valueForKey:str] doubleValue] * 0.7 - 5);
             }
         }
     }
     
-    return coeffdict;
+    [self saveYelpData];
 }
 
 -(void)findTopBiz:(void (^)(NSDictionary *biz, NSError *error))completionHandler
