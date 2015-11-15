@@ -35,6 +35,12 @@
     
     CGSize size = self.view.frame.size;
     _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(20, 50, size.width - 40, size.height / 2 - 100) Dictionary:_data];
+
+    
+//    UIImage *starImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_data[@"rating_img_url_large"]]]];
+//    
+//    UIImageView* starVw = [[UIImageView alloc] initWithImage:starImg];
+//    starVw.frame = CGRectMake(20, size.height/2 - 100, size.width - 40, 50);
     
     _btn = [[FMButton alloc] initWithFrame:CGRectMake(20, _restaurantView.frame.origin.y + _restaurantView.frame.size.height + 10, size.width - 40, 100) completion:^{
         // TODO open maps
@@ -57,6 +63,7 @@
     
     [self.view addSubview:_restaurantView];
     [self.view addSubview:_btn];
+//    [self.view addSubview:starVw];
 }
 
 -(void) createNewButtons
