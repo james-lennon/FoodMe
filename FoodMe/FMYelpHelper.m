@@ -65,7 +65,10 @@ static NSString * const kSearchLimit       = @"3";
 -(void) setSearchRadiusBasedOnTime:(NSString *)timeRange
 {
 #warning fix this later...
-    if([timeRange isEqualToString:@"5 - 10 min"]) {
+    if([timeRange isEqualToString:@"0 - 5 min"]) {
+        _radiusInMeters = 801.45331 * 0.5;
+    }
+    else if([timeRange isEqualToString:@"5 - 10 min"]) {
         
         _radiusInMeters = 801.45331;
     }
