@@ -30,6 +30,8 @@
 		9D8A017C1BF7F69000A84ABD /* pot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A017B1BF7F69000A84ABD /* pot.png */; };
 		9D8A017E1BF7F69600A84ABD /* steam.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A017D1BF7F69600A84ABD /* steam.png */; };
 		9D8A01811BF7FB1B00A84ABD /* FMLoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01801BF7FB1B00A84ABD /* FMLoadingViewController.m */; };
+		9D8A01841BF8166300A84ABD /* FMRestaurantView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01831BF8166300A84ABD /* FMRestaurantView.m */; };
+		9D8A01871BF8195900A84ABD /* FMRestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A01861BF8195900A84ABD /* FMRestaurantViewController.m */; };
 		9DFBDC561BF6EC6200A37168 /* FMQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */; };
 		9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBDC581BF6EF5800A37168 /* NSMutableArray_Shuffling.m */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,10 @@
 		9D8A017D1BF7F69600A84ABD /* steam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = steam.png; sourceTree = "<group>"; };
 		9D8A017F1BF7FB1B00A84ABD /* FMLoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMLoadingViewController.h; sourceTree = "<group>"; };
 		9D8A01801BF7FB1B00A84ABD /* FMLoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMLoadingViewController.m; sourceTree = "<group>"; };
+		9D8A01821BF8166300A84ABD /* FMRestaurantView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMRestaurantView.h; sourceTree = "<group>"; };
+		9D8A01831BF8166300A84ABD /* FMRestaurantView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMRestaurantView.m; sourceTree = "<group>"; };
+		9D8A01851BF8195900A84ABD /* FMRestaurantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMRestaurantViewController.h; sourceTree = "<group>"; };
+		9D8A01861BF8195900A84ABD /* FMRestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMRestaurantViewController.m; sourceTree = "<group>"; };
 		9DFBDC541BF6EC6200A37168 /* FMQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMQuestionViewController.h; path = QuestionView/FMQuestionViewController.h; sourceTree = "<group>"; };
 		9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMQuestionViewController.m; path = QuestionView/FMQuestionViewController.m; sourceTree = "<group>"; };
 		9DFBDC571BF6EF5800A37168 /* NSMutableArray_Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSMutableArray_Shuffling.h; path = QuestionView/NSMutableArray_Shuffling.h; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 				9D8A01681BF7064800A84ABD /* FMLabel.m */,
 				9D8A01781BF7F5CC00A84ABD /* FMLoadingView.h */,
 				9D8A01791BF7F5CC00A84ABD /* FMLoadingView.m */,
+				9D8A01821BF8166300A84ABD /* FMRestaurantView.h */,
+				9D8A01831BF8166300A84ABD /* FMRestaurantView.m */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -220,6 +228,8 @@
 				9DFBDC551BF6EC6200A37168 /* FMQuestionViewController.m */,
 				9D8A017F1BF7FB1B00A84ABD /* FMLoadingViewController.h */,
 				9D8A01801BF7FB1B00A84ABD /* FMLoadingViewController.m */,
+				9D8A01851BF8195900A84ABD /* FMRestaurantViewController.h */,
+				9D8A01861BF8195900A84ABD /* FMRestaurantViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				435C16FE1BF73DF400FE3529 /* NSURLRequest+OAuth.m in Sources */,
+				9D8A01841BF8166300A84ABD /* FMRestaurantView.m in Sources */,
 				9D8A01691BF7064800A84ABD /* FMLabel.m in Sources */,
 				435FF34A1BF6E8F200ADE8AE /* AppDelegate.m in Sources */,
 				9DFBDC591BF6EF5800A37168 /* NSMutableArray_Shuffling.m in Sources */,
@@ -370,6 +381,7 @@
 				9D8A01741BF7A57300A84ABD /* FMTopLevelViewController.m in Sources */,
 				9D8A01811BF7FB1B00A84ABD /* FMLoadingViewController.m in Sources */,
 				9D8A016F1BF794FE00A84ABD /* FMMainViewController.m in Sources */,
+				9D8A01871BF8195900A84ABD /* FMRestaurantViewController.m in Sources */,
 				435C17051BF7594B00FE3529 /* FMLocationHelper.m in Sources */,
 				9D8A01771BF7A77E00A84ABD /* FMSetupViewController.m in Sources */,
 				4380E4D11BF7982C00BD76D8 /* FMDataLoader.m in Sources */,
