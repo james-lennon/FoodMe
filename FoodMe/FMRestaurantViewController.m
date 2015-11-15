@@ -14,7 +14,7 @@
 -(id)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     if (self) {
-        _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(0, 0, 500, 500) Dictionary:dict];
+        _data = dict;
     }
     return self;
 }
@@ -22,6 +22,8 @@
 -(void)viewDidLoad {
     self.view.backgroundColor = BACKGROUND_COLOR;
     
+    _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) Dictionary:_data];
+//    [_restaurantView layoutSubviews];
     [self.view addSubview:_restaurantView];
 }
 

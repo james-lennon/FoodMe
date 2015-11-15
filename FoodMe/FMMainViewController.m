@@ -10,6 +10,7 @@
 #import "FMColors.h"
 #import "FMLoadingViewController.h"
 #import "FMYelpHelper.h"
+#import "FMRestaurantViewController.h"
 
 @implementation FMMainViewController
 
@@ -60,6 +61,7 @@
             }
             
             NSLog(@"Top business: %@", biz);
+            _yelpData = biz;
             
             NSString* categoryName = biz[@"categories"][0][0];
             
@@ -80,6 +82,10 @@
 -(void)answerChosen:(NSString *)answer WithQuestion:(NSString *)question {
     if ([answer  isEqual: @"Great, let's go!"]) {
         // Show restaurant / directions
+        FMRestaurantViewController* vc = [[FMRestaurantViewController alloc] initWithDictionary:_yelpData];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self presentViewController:vc animated:NO completion:nil];
+        }];
     } else {
         [self dismissViewControllerAnimated:YES completion:^{
             [self chooseRestaurant];

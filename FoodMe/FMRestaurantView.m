@@ -7,21 +7,29 @@
 //
 
 #import "FMRestaurantView.h"
+#import "FMColors.h"
 #import "FMLabel.h"
 
 @implementation FMRestaurantView
 
 -(instancetype)initWithFrame:(CGRect)frame Dictionary:(NSDictionary*)dict {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
         _imgURL = dict[@"image_url"];
         _name = dict[@"name"];
         _url = dict[@"url"];
+        
+        NSLog(@"dict=%@\n", dict);
+        
+        self.layer.cornerRadius = 10;
+        self.layer.borderColor = TEXT_COLOR.CGColor;
+        self.layer.borderWidth = 3;
     }
     return self;
 }
 
 -(void)layoutSubviews {
+    NSLog(@"loading image from %@\n", _imgURL);
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: _url]];
     UIImageView* imgView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
     
@@ -30,6 +38,7 @@
     
     
     FMLabel* label = [[FMLabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    label.text = _name;
     [label sizeToFit];
     label.frame = CGRectMake(self.frame.size.width / 2 - label.frame.size.width / 2, 100 + imgWidth + 10, label.frame.size.width, label.frame.size.height);
     

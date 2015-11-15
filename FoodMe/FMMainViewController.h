@@ -15,6 +15,7 @@
 
 @property (nonatomic) FMLabel* titleLabel;
 @property (nonatomic) FMButton* startButton;
+@property (nonatomic) NSDictionary* yelpData;
 
 -(void)answerChosen:(NSString *)answer WithQuestion:(NSString *)question;
 
