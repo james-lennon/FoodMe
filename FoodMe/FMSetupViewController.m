@@ -70,7 +70,7 @@
     else if (_questionIndex == 2) {
         [[FMYelpHelper sharedInstance] setSearchRadiusBasedOnTime:answer];
     }
-    else if (_questionIndex == 2) {
+    else if (_questionIndex == 3) {
         [[FMYelpHelper sharedInstance] setMeal:answer];
     }
     _questionIndex++;

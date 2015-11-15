@@ -19,17 +19,6 @@
 @property (nonatomic) double radiusInMeters;
 @property (nonatomic) NSString* mealDesc;
 
-//_prompts = @[
-//@"We'll need to ask you a few questions to get set up.",
-//@"What's your price range?",
-//@"How far away do you want to eat?",
-//];
-//_options = @[
-//@[@"Ok"],
-//@[@"$5-$10", @"$10-$20", @"$20-$40"],
-//@[@"5 - 10 min", @"10 - 20 min", @"20 - 40 min"]
-//];
-
 @end
 
 @implementation FMYelpHelper
@@ -97,6 +86,7 @@ static NSString * const kSearchLimit       = @"3";
 -(NSMutableDictionary *) mutateCoefficientsForPostEating: (NSMutableDictionary *)coeffdict categoriesToMutate:(NSArray *)mutcats likedboolean:(BOOL)liked {
    
     if(liked) {
+        
         
         for (NSString* str in mutcats) {
             coeffdict[str] = @([[coeffdict valueForKey:str] doubleValue] + arc4random_uniform(3));
@@ -301,6 +291,8 @@ static NSString * const kSearchLimit       = @"3";
     
     NSURLRequest *searchRequest = [self createSearchWithLocation:location andRadiusInMeters:meters andTerm:newTerm andLimit:limit andLat:lat andLong:longit];
     NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSLog(@"%@", [[searchRequest URL] absoluteString]);
 
     [[session dataTaskWithRequest:searchRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
@@ -354,7 +346,7 @@ static NSString * const kSearchLimit       = @"3";
                              @"term": term,
                              @"radius_filter": [NSString stringWithFormat:@"%f", meters],
                              @"cll": [NSString stringWithFormat:@"%f,%f", latitude,longitude],
-                             @"category_filter": @"food"
+//                             @"category_filter": @"Food"
                              };
     
     NSURLRequest* toRet =  [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];
