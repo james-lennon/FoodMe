@@ -87,7 +87,8 @@
         [self dismissViewControllerAnimated:YES completion:^{
             [self presentViewController:vc animated:NO completion:nil];
         }];
-    } else {
+    }
+    else {
         [self dismissViewControllerAnimated:YES completion:^{
             [self chooseRestaurant];
         }];
