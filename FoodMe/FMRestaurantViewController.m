@@ -76,11 +76,17 @@
         
         [[FMYelpHelper sharedInstance] mutateCoeffsAfterEatingWithCategoriesToMutate:categories andDidLike:YES];
         
-        [self dismissViewControllerAnimated:YES completion:^{
-            [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
-                [(FMTopLevelViewController *)self.presentingViewController.presentingViewController reset];
-            }];
-        }];
+//        NSLog(@"%@",self.presentingViewController.presentingViewController.presentingViewController.description);
+//        NSLog(@"%@",self.presentingViewController.presentingViewController.description);
+//        NSLog(@"%@",self.presentingViewController.description);
+        
+        [(FMTopLevelViewController *)self.presentingViewController.presentingViewController reset];
+        
+//        [self dismissViewControllerAnimated:YES completion:^{
+//            [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+//                [(FMTopLevelViewController *)self.presentingViewController.presentingViewController reset];
+//            }];
+//        }];
     
     }];
     [likeBtn setTitle:@"Like" forState:UIControlStateNormal];
@@ -89,7 +95,7 @@
         
         [[FMYelpHelper sharedInstance] mutateCoeffsAfterEatingWithCategoriesToMutate:categories andDidLike:NO];
         
-#warning NEED TO START OVER HERE
+        [(FMTopLevelViewController *)self.presentingViewController.presentingViewController reset];
     }];
     [dislikeBtn setTitle:@"Dislike" forState:UIControlStateNormal];
     
