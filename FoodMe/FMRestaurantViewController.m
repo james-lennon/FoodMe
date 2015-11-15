@@ -29,7 +29,7 @@
     
     FMButton* btn = [[FMButton alloc] initWithFrame:CGRectMake(20, _restaurantView.frame.origin.y + _restaurantView.frame.size.height + 10, size.width - 40, 100) completion:^{
         // TODO open maps
-        NSDictionary* coords = _data[@"location"][@"address"];
+        NSDictionary* coords = _data[@"location"][@"coordinate"];
         NSLog(@"%@\n", coords);
         if (coords) {
             
