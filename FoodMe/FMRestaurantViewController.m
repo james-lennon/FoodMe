@@ -22,8 +22,8 @@
 -(void)viewDidLoad {
     self.view.backgroundColor = BACKGROUND_COLOR;
     
-    _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) Dictionary:_data];
-//    [_restaurantView layoutSubviews];
+    CGSize size = self.view.frame.size;
+    _restaurantView = [[FMRestaurantView alloc] initWithFrame:CGRectMake(20, 200, size.width - 40, 300) Dictionary:_data];
     [self.view addSubview:_restaurantView];
 }
 

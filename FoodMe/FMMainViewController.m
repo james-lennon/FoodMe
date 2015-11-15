@@ -51,32 +51,34 @@
 
 -(void)chooseRestaurant {
     FMLoadingViewController* lvc = [[FMLoadingViewController alloc] init];
-    [self presentViewController:lvc animated:YES completion:^{
-        
-        [[FMYelpHelper sharedInstance] findTopBiz:^(NSDictionary *biz, NSError *error) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self presentViewController:lvc animated:YES completion:^{
             
-            if(error) {
-                NSLog(@"ERROR!!! %@", error);
-                return;
-            }
-            
-            NSLog(@"Top business: %@", biz);
-            _yelpData = biz;
-            
-            NSString* categoryName = biz[@"categories"][0][0];
-            
-            NSLog(@"Category Name: %@", categoryName);
-            
-            NSString* questionStr = [NSString stringWithFormat:@"How does %@ sound?", categoryName];
-            
-            FMQuestionViewController* confirmVC = [[FMQuestionViewController alloc] initWithQuestion:questionStr answers:@[@"Great, let's go!", @"No thanks"]];
-            confirmVC.questionDelegate = self;
-            [self dismissViewControllerAnimated:YES completion:^{
-                [self presentViewController:confirmVC animated:NO completion:nil];
+            [[FMYelpHelper sharedInstance] findTopBiz:^(NSDictionary *biz, NSError *error) {
+                
+                if(error) {
+                    NSLog(@"ERROR!!! %@", error);
+                    return;
+                }
+                
+                NSLog(@"Top business: %@", biz);
+                _yelpData = biz;
+                
+                NSString* categoryName = biz[@"categories"][0][0];
+                
+                NSLog(@"Category Name: %@", categoryName);
+                
+                NSString* questionStr = [NSString stringWithFormat:@"How does %@ sound?", categoryName];
+                
+                FMQuestionViewController* confirmVC = [[FMQuestionViewController alloc] initWithQuestion:questionStr answers:@[@"Great, let's go!", @"No thanks"]];
+                confirmVC.questionDelegate = self;
+                [self dismissViewControllerAnimated:YES completion:^{
+                    [self presentViewController:confirmVC animated:NO completion:nil];
+                }];
+                
             }];
-            
         }];
-    }];
+    });
 }
 
 -(void)answerChosen:(NSString *)answer WithQuestion:(NSString *)question {
