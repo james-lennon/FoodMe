@@ -104,6 +104,9 @@
     }
     else {
         
+        [self chooseRestaurant];
+        return;
+        
         [[FMYelpHelper sharedInstance] mutateCoefficientsOnRespinWithCategories:categories andDidLike:NO];
 
         

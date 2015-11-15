@@ -82,7 +82,7 @@ Yes
 No
 #Do you feel your tongue in your mouth?
 Yes
-No
+Well now I do
 #Click No if you don't want to click Yes. Click Yes otherwise.
 No
 Yes
