@@ -19,6 +19,7 @@ SINGLETON_INTR(FMYelpHelper);
 -(void) setSearchRadiusBasedOnTime: (NSString *)timeRange;
 -(void) setPriceDescBasedOnResponse: (NSString *) response;
 -(void) setMeal: (NSString *) mealDesc;
+-(void) setIndexToPick: (int) ind;
 
 
 @end
