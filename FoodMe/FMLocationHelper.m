@@ -52,7 +52,7 @@ SINGLETON_IMPL(FMLocationHelper);
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         
          CLPlacemark *placemark = placemarks[0];
-         NSLog(@"locality: %@\n", placemark.locality);
+//         NSLog(@"locality: %@\n", placemark.locality);
         
         if(![placemark.locality isEqualToString:self.locality]) {
             

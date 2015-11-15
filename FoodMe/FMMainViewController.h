@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "FMLabel.h"
 #import "FMButton.h"
+#import "FMQuestionViewController.h"
 
-@interface FMMainViewController : UIViewController
+@interface FMMainViewController : UIViewController<FMQuestionDelegate>
 
 @property (nonatomic) FMLabel* titleLabel;
 @property (nonatomic) FMButton* startButton;
+
+-(void)answerChosen:(NSString *)answer WithQuestion:(NSString *)question;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "FMMainViewController.h"
 #import "FMColors.h"
-#import "FMQuestionViewController.h"
+#import "FMLoadingViewController.h"
 #import "FMYelpHelper.h"
 
 @implementation FMMainViewController
@@ -46,17 +46,34 @@
             
         } completion:^(BOOL finished) {
             
-            [[FMYelpHelper sharedInstance] findTopBiz:^(NSDictionary *biz, NSError *error) {
-                
-                NSLog(@"Top business: %@", biz);
-                
-                NSString* categoryName = biz[@"categories"][0][0];
-                
-                NSLog(@"Category Name: %@", categoryName);
-                
+            FMLoadingViewController* lvc = [[FMLoadingViewController alloc] init];
+            [self presentViewController:lvc animated:YES completion:^{
+                [[FMYelpHelper sharedInstance] findTopBiz:^(NSDictionary *biz, NSError *error) {
+                    
+                    NSLog(@"Top business: %@", biz);
+                    
+                    NSString* categoryName = biz[@"categories"][0][0];
+                    
+                    NSLog(@"Category Name: %@", categoryName);
+                    
+                    NSString* questionStr = [NSString stringWithFormat:@"How does %@ sound?", categoryName];
+                    FMQuestionViewController* confirmVC = [[FMQuestionViewController alloc] initWithQuestion:questionStr answers:@[@"Great, let's go!", @"No thanks"]];
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        [self presentViewController:confirmVC animated:NO completion:nil];
+                    }];
+                    
+                }];
             }];
         }];
     });
+}
+
+-(void)answerChosen:(NSString *)answer WithQuestion:(NSString *)question {
+    if ([answer  isEqual: @"Great, let's go!"]) {
+        // Show restaurant / directions
+    } else {
+        // re-choose
+    }
 }
 
 @end
