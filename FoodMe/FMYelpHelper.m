@@ -146,6 +146,11 @@ static NSString * const kSearchLimit       = @"3";
     [self chooseRankingWithRadius:_radiusInMeters andMealTime:_mealDesc andMealPriceDesc:_priceDesc
              andCompletionHandler: ^(NSArray *bizzes, NSArray* rankings, NSError *error) {
                  
+                 if(error) {
+                     completionHandler(nil, error);
+                     return;
+                 }
+                 
                  if(bizzes.count == 0) {
                      completionHandler(nil, [NSError errorWithDomain:@"No open businesses :(" code:0 userInfo:@{}]);
                      return;
@@ -175,7 +180,12 @@ static NSString * const kSearchLimit       = @"3";
 -(void)chooseRankingWithRadius: (double) meters andMealTime: (NSString *)mealString andMealPriceDesc: (NSString *)priceDesc
           andCompletionHandler: (void (^)(NSArray *bizzes, NSArray* rankings, NSError *error))completionHandler
 {
-    [[FMYelpHelper sharedInstance] queryRestsWithLocation:[FMLocationHelper sharedInstance].locality andRadiusInMeters:meters andTerm:mealString andLimit:5 andPriceDescription:priceDesc completionHandler:^(NSArray *results, NSError *error) {
+    [[FMYelpHelper sharedInstance] queryRestsWithLocation:[FMLocationHelper sharedInstance].locality andRadiusInMeters:meters andTerm:mealString andLimit:100 andPriceDescription:priceDesc completionHandler:^(NSArray *results, NSError *error) {
+        
+        if (error) {
+            completionHandler(nil, nil, error);
+            return;
+        }
         
         NSLog(@"%@", results);
         
@@ -280,7 +290,7 @@ static NSString * const kSearchLimit       = @"3";
 {
     NSLog(@"Querying the stuff");
     
-    NSString* newTerm = [NSString stringWithFormat:@"%@ %@", price, term];
+    NSString* newTerm = [NSString stringWithFormat:@"%@, %@", price, term];
     
     
     double lat = [FMLocationHelper sharedInstance].curLoc.coordinate.latitude;
@@ -344,7 +354,11 @@ static NSString * const kSearchLimit       = @"3";
                              @"category_filter": @"food"
                              };
     
-    return [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];
+    NSURLRequest* toRet =  [NSURLRequest requestWithHost:kAPIHost path:kSearchPath params:params];
+    
+    NSLog(@"%@", [[toRet URL] absoluteString]);
+    
+    return toRet;
 }
 
 /**
