@@ -8,6 +8,7 @@
 
 #import "FMLocationHelper.h"
 #import "FMYelpHelper.h"
+#import "FMLocationHelper.h"
 
 @interface FMLocationHelper ()
 
@@ -55,7 +56,6 @@ SINGLETON_IMPL(FMLocationHelper);
 //         NSLog(@"locality: %@\n", placemark.locality);
         
         if(![placemark.locality isEqualToString:self.locality]) {
-            
             self.locality = placemark.locality;
 //            [[FMYelpHelper sharedInstance] chooseRankingWithRadius:1000 andMealTime:@"dinner" andMealPriceDesc:@"cheap"];
         }
