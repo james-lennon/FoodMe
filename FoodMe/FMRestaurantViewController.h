@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FMRestaurantView.h"
 
 @interface FMRestaurantViewController : UIViewController
+
+@property (nonatomic) FMRestaurantView* restaurantView;
+
+-(id) initWithDictionary:(NSDictionary*)dict;
 
 @end
